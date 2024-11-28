@@ -1,0 +1,120 @@
+/* body 기본 스타일 */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f8f8;
+}
+
+/* 컨테이너 스타일 */
+.container {
+  max-width: 1200px; /* 최대 너비 설정 */
+  margin: 0 auto; /* 중앙 정렬 */
+  padding: 20px; /* 내부 여백 설정 */
+}
+
+/* 레스토랑 리스트 스타일 */
+.restaurant-listing {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin: 20px 0;
+  padding: 20px; /* 내부 여백 추가 */
+}
+
+/* 레스토랑 정보 스타일 */
+.restaurant-info {
+  padding: 20px;
+}
+
+/* 제목 스타일 */
+.restaurant-info h1, .restaurant-info h2 {
+  margin: 0;
+}
+
+/* 별점 스타일 */
+.rating {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.rating .star {
+  color: gold;
+  margin-right: 5px;
+}
+
+.rating .score {
+  font-size: 1.2em;
+  margin-right: 5px;
+}
+
+.rating .reviews {
+  color: #888;
+}
+
+/* 초대 문구 스타일 */
+.invite {
+  margin: 10px 0;
+}
+
+/* 위치 스타일 */
+.location {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.location .icon {
+  margin-right: 5px;
+}
+
+.location-details {
+  display: flex;
+  align-items: center;
+}
+
+.toggle-button {
+  background: none;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+  font-size: 1em;
+  margin-left: 10px; /* 필요한 경우 조정 */
+}
+
+.details {
+  display: block;
+  margin-top: 10px;
+}
+
+.hours {
+  margin-top: 10px;
+}
+
+.hours-details {
+  display: flex;
+  align-items: center;
+}
+
+.buttons .call {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.buttons .call:hover {
+  background-color: #0056b3;
+}
+
+.tags .tag {
+  display: inline-block;
+  background-color: #e0e0e0;
+  padding: 5px 10px;
+  margin: 5px;
+  border-radius: 20px;
+}
