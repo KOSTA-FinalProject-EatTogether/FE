@@ -13,6 +13,12 @@
 =======
     "react-scripts": "5.0.1",
     "react-router-dom": "^7.0.1",
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     "web-vitals": "^2.1.4"
   },
