@@ -2,7 +2,7 @@ import {Suspense, lazy} from "react";
 const Loading = <div>Loading..</div>
 
 const UserMyPage = lazy(()=>import("../pages/mypages/UserMyPage"))
-const ModifyUser = lazy(()=>import("../components/mypage/ModifyUserComponent"))
+const ModifyUser = lazy(()=>import("../pages/mypages/ModifyProfilePage"))
 
 const memberRouter = () => {
     return [
@@ -10,7 +10,7 @@ const memberRouter = () => {
             path: "user",
             element : <Suspense fallback={Loading}><UserMyPage/></Suspense>
         },{
-            path: "profileEdit",
+            path: "modify",
             element : <Suspense fallback={Loading}><ModifyUser/></Suspense>
         }
     ]

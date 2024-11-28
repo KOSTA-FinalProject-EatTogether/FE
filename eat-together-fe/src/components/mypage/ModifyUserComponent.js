@@ -2,9 +2,24 @@ import InputField from "../common/InputField";
 import PhoneNumberInput from "../common/PhoneNumberInput";
 import DatePicker from "react-datepicker";
 import {ko} from "date-fns/locale";
-import React from "react";
+import React,{useState} from "react";
 
 const ModifyUserComponent = () => {
+    const [user, setUser] = useState('')
+
+    const [birthDate, setBirthDate] = useState(new Date())
+
+    const handleChangeUser = (e) =>{
+        if (e.target) {
+            user[e.target.name] = e.target.value
+            setUser({...user})
+        } else {
+            // 날짜 선택의 경우
+            user.birthDate = e
+            setUser({...user})
+            setBirthDate(e)
+        }
+    }
     return (
         <div>
             <form className="validation-form" noValidate>
@@ -16,7 +31,7 @@ const ModifyUserComponent = () => {
                         value={user.email}
                         onChange={handleChangeUser}
                         placeholder="이메일을 입력하세요"
-                        required
+                        readOnly={true}
                         // error={!formData.email.includes('@') ? '유효한 이메일을 입력하세요' : ''}
                     />
                 </div>
@@ -96,7 +111,7 @@ const ModifyUserComponent = () => {
                     <div className="row">
                         <div className="col-4 pe-2">
                             <button className="btn btn-primary btn-lg btn-block w-100"
-                                    onClick={handleClickSignUp}>가입 완료
+                                    >가입 완료
                             </button>
                         </div>
                         <div className="col-4 ps-2">

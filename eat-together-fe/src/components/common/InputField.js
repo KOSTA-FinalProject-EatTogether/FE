@@ -9,6 +9,7 @@ const InputField = ({
                         value,
                         onChange,
                         placeholder = '',
+                        readOnly = false,
                         required = false,
                         error = '',
                         className = '',
@@ -32,6 +33,7 @@ const InputField = ({
                 onChange={onChange}
                 placeholder={placeholder}
                 required={required}
+                readOnly={readOnly}
                 className={`
           form-control 
           ${error ? 'is-invalid' : ''}
