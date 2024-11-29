@@ -1,6 +1,7 @@
 import {Suspense,lazy} from "react";
 import memberRouter from "./memberRouter";
 import myPageRouter from "./myPageRouter";
+import restaurantfixData from "../components/restaurantDetails/RestaurantfixData";
 
 const {createBrowserRouter} = require("react-router-dom")
 
@@ -13,6 +14,9 @@ const root = createBrowserRouter([
     },{
         path: "mypage",
         children : myPageRouter()
+    },{
+    path: "resdetail",
+        children : restaurantfixData()
     }
 ])
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import './Header.css';
+import './css/Header.css';
 
 // Font Awesome에서 아이콘 가져오기
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
