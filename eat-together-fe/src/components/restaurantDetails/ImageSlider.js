@@ -1,10 +1,10 @@
 import React from 'react';
-import './ImageSlider.css';
-import ex from './1.jpg'
+import '../../css/restaurantDetailsCss/ImageSlider.css';
+import simba from '../../assets/simba_icon.png'
 function ImageSlider() {
   return (
     <div className="image-slider">
-      <img src="/1.jpg"  alt={ex}/>
+      <img src={simba}/>
       <button className="prev">&#10094;</button>
       <button className="next">&#10095;</button>
     </div>
