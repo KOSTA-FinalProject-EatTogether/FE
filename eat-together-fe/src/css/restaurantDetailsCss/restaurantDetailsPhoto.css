@@ -3,12 +3,6 @@
     /* 추가적인 스타일이 필요한 경우 여기에 추가 */
 }
 
-.restaurant_details_title {
-    padding: 10px;
-    text-align: center; /* 중앙 정렬 */
-    background-color: #f8f8f8; /* 배경색 추가 */
-    margin-bottom: 20px; /* 아래 여백 추가 */
-}
 
 .restaurant_details_content_container {
     background-color: #fff;
@@ -41,8 +35,10 @@
 }
 
 .restaurant_details_button_container {
+    background-color: #fff;
+    overflow: hidden;
+    padding: 15px 40px 0; /* 내부 여백 추가 */
     text-align: center;
-    margin-top: 20px; /* 위쪽 여백 설정 */
 }
 
 .restaurant_details_button {
@@ -61,4 +57,13 @@
 
 .right_arrow_icon {
     margin-left: 10px; /* 텍스트와 아이콘 사이의 여백 */
+}
+.menu_image_container::after{
+    content: "";
+    display: block;
+    width: 100%;
+    height: 3px; /* 구분선의 높이 */
+    background-color: #ccc; /* 구분선 색상 */
+    margin-top: 15px; /* 텍스트와 구분선 사이의 간격 */
+    margin-bottom:10px;
 }
