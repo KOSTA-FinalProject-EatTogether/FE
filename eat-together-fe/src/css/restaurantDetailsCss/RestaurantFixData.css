@@ -16,10 +16,9 @@ body {
 /* 레스토랑 리스트 스타일 */
 .restaurant-listing {
     background-color: #fff;
-    border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    margin: 10px 0;
+    margin: 10px 0 0 ;
     padding: 10px; /* 내부 여백 추가 */
 }
 
