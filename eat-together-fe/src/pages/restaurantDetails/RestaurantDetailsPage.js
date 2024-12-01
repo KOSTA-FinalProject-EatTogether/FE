@@ -7,6 +7,7 @@ import RestaurantCarInfo from "../../components/restaurantDetails/RestaurantCarI
 import RestaurantCorkage  from "../../components/restaurantDetails/RestaurantCorkage";
 import RestaurantDetailsMenu from "../../components/restaurantDetails/RestaurantDetailsMenu";
 import RestaurantDetailsPhoto from "../../components/restaurantDetails/RestaurantDetailsPhoto";
+import RestaurantDetailsReview from "../../components/restaurantDetails/RestaurantDetailsReview";
 
 const RestaurantDetailsPage = () => {
 
@@ -20,6 +21,7 @@ const RestaurantDetailsPage = () => {
             <RestaurantCorkage/>
             <RestaurantDetailsMenu/>
             <RestaurantDetailsPhoto/>
+            <RestaurantDetailsReview/>
         </div>
     )
 }
