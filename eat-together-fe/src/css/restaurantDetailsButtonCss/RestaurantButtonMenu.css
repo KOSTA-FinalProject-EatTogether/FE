@@ -2,7 +2,6 @@
 .restaurant_details_container {
     background-color: #fff;
     padding: 20px;
-    border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     width: 800px; /* 원하는 너비로 조정 */
     margin: 0 auto; /* 중앙 정렬 */
