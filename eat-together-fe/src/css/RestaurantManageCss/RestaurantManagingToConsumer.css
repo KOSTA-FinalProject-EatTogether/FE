@@ -23,7 +23,6 @@ body {
 .header_button {
     background-color: #007bff;
     margin-right: 20px;
-
     color: white;
     padding: 10px 20px;
     border: none;
@@ -51,6 +50,7 @@ body {
 }
 
 .reservation_status_button {
+    margin: 0 10px;
     padding: 10px 20px;
     background-color: #007bff;
     color: white;
@@ -62,4 +62,9 @@ body {
 
 .reservation_status_button:hover {
     background-color: #0056b3;
+}
+
+
+.reservation_status{
+    padding : 0 20px;
 }
