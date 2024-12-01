@@ -1,7 +1,7 @@
 import {Suspense,lazy} from "react";
 import memberRouter from "./memberRouter";
 import myPageRouter from "./myPageRouter";
-import restaurantfixData from "../components/restaurantDetails/RestaurantfixData";
+import restaurantfixData from "../components/restaurantDetails/RestaurantFixData";
 
 const {createBrowserRouter} = require("react-router-dom")
 
