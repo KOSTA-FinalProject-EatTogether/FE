@@ -1,0 +1,140 @@
+/* RestaurantDetailsLocation.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+}
+
+.restaurant_details_container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.review_total {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.star {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.review_total_score {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.review_total_count {
+    font-size: 1em;
+    color: #777;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.dropdown_button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.dropdown_content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown_content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown_content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown_content {
+    display: block;
+}
+
+.dropdown:hover .dropdown_button {
+    background-color: #0056b3;
+}
+
+.best_review {
+    border-top: 1px solid #ccc;
+    padding-top: 20px;
+}
+
+.review_header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.profile_img {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    margin-right: 15px;
+}
+
+.reviewer_info {
+    display: flex;
+    flex-direction: column;
+}
+
+.reviewer_name {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.review_score_date {
+    display: flex;
+    justify-content: space-between;
+}
+
+.review_score {
+    font-size: 2em;
+    color: gold;
+    margin-right: 10px;
+}
+
+.review_date {
+    font-size: 0.9em;
+    align-content: center;
+    color: #777;
+}
+
+.review_images {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.review_image {
+    width: 30%;
+    border-radius: 8px;
+}
+
+.review_text {
+    font-size: 1em;
+    color: #555;
+}
