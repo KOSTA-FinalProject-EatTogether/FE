@@ -1,17 +1,8 @@
-.restaurant_car_info_title h2 {
-    margin: 0;
-    width: 500px;
-    display: flex;
-}
 
 .restaurant_car_info_layout {
     background-color: #fff;
     overflow: hidden;
     padding: 0 30px; /* 내부 여백 추가 */
-}
-
-.restaurant_car_info_title {
-    margin: 10px 0 20px;
 }
 
 .restaurant_car_info_content {

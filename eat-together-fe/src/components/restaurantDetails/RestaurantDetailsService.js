@@ -8,7 +8,7 @@ function RestaurantDetailsService() {
     return (
         <div className="restaurant_details_container">
             <div className="restaurant_service_layout">
-                <div className="name_info"><h2>편의 시설</h2></div>
+                <div className="restaurant_details_title"><h2>편의 시설</h2></div>
                 <div className="detail_info">
                     <div className="amenities_icon">
                         <span className="amenities_icon"> <img src={wine} width="100"/></span>
