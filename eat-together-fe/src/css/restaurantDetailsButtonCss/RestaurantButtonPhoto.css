@@ -1,0 +1,39 @@
+/* RestaurantDetailsLocation.css */
+.restaurant_details_container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 1200px; /* 원하는 최대 너비 */
+    margin: 0 auto; /* 중앙 정렬 */
+    text-align: center; /* 전체 내용 중앙 정렬 */
+}
+
+.restaurant_details_title {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.photo_gallery {
+    background-color: #fff;
+    overflow: hidden;
+    margin: 10px 0 0;
+    padding: 10px; /* 내부 여백 추가 */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* 그리드 레이아웃, 최소 너비와 최대 너비 설정 */
+    grid-gap: 20px; /* 그리드 아이템 간격 */
+}
+
+.gallery_image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.large_image {
+    grid-column: span 2; /* 두 칸을 차지하는 이미지 */
+    grid-row: span 2; /* 두 줄을 차지하는 이미지 */
+    height: 100%; /* 높이 설정 */
+}
