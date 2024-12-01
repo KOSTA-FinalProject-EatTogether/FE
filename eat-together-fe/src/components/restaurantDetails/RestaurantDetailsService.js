@@ -15,6 +15,60 @@ function RestaurantDetailsService() {
                     </div>
                     <div className="amenities_name">콜키지 가능</div>
                 </div>
+                <div className="detail_info">
+                    <div className="amenities_icon">
+                        <span className="amenities_icon"> <img src={wine} width="100"/></span>
+                    </div>
+                    <div className="amenities_name">콜키지 가능</div>
+                </div>
+                <div className="detail_info">
+                    <div className="amenities_icon">
+                        <span className="amenities_icon"> <img src={wine} width="100"/></span>
+                    </div>
+                    <div className="amenities_name">콜키지 가능</div>
+                </div>
+                <div className="detail_info">
+                    <div className="amenities_icon">
+                        <span className="amenities_icon"> <img src={wine} width="100"/></span>
+                    </div>
+                    <div className="amenities_name">콜키지 가능</div>
+                </div>
+                <div className="detail_info">
+                    <div className="amenities_icon">
+                        <span className="amenities_icon"> <img src={wine} width="100"/></span>
+                    </div>
+                    <div className="amenities_name">콜키지 가능</div>
+                </div>
+                <div className="detail_info">
+                    <div className="amenities_icon">
+                        <span className="amenities_icon"> <img src={wine} width="100"/></span>
+                    </div>
+                    <div className="amenities_name">콜키지 가능</div>
+                </div>
+                <div className="detail_info">
+                    <div className="amenities_icon">
+                        <span className="amenities_icon"> <img src={wine} width="100"/></span>
+                    </div>
+                    <div className="amenities_name">콜키지 가능</div>
+                </div>
+                <div className="detail_info">
+                    <div className="amenities_icon">
+                        <span className="amenities_icon"> <img src={wine} width="100"/></span>
+                    </div>
+                    <div className="amenities_name">콜키지 가능</div>
+                </div>
+                <div className="detail_info">
+                    <div className="amenities_icon">
+                        <span className="amenities_icon"> <img src={wine} width="100"/></span>
+                    </div>
+                    <div className="amenities_name">콜키지 가능</div>
+                </div>
+                <div className="detail_info">
+                    <div className="amenities_icon">
+                        <span className="amenities_icon"> <img src={wine} width="100"/></span>
+                    </div>
+                    <div className="amenities_name">콜키지 가능</div>
+                </div>
             </div>
         </div>
     )
