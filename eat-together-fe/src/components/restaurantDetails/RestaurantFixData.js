@@ -20,7 +20,7 @@ function RestaurantFixData() {
     }
 
     return (
-        <div className={"fix_data_container"}>
+        <div className="restaurant_details_container">
             <div className="restaurant-listing">
                 <ImageSlider/>
                 <div className="restaurant-info">

@@ -5,12 +5,6 @@ body {
     background-color: #f8f8f8;
 }
 
-.service_container {
-    max-width: 1200px; /* 최대 너비 설정 */
-    margin: 0 auto; /* 중앙 정렬 */
-    text-align: left;
-}
-
 /* 기본 네비게이션 바 스타일 */
 .navbar {
     background-color: #fff;

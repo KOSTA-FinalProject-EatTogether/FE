@@ -1,7 +1,7 @@
-import ReviewAndBookmarkComponent from "../../components/mypage/ReviewAndBookmarkComponent";
 import RestaurantFixData from "../../components/restaurantDetails/RestaurantFixData";
 import RestaurantDetailsNav from "../../components/restaurantDetails/RestaurantDetailsNav";
 import RestaurantDetailsService from "../../components/restaurantDetails/RestaurantDetailsService";
+import RestaurantCarInfo from "../../components/restaurantDetails/RestaurantCarInfo";
 import React from "react";
 
 const RestaurantDetailsPage = () => {
@@ -12,7 +12,7 @@ const RestaurantDetailsPage = () => {
             <RestaurantFixData/>
             <RestaurantDetailsNav/>
             <RestaurantDetailsService/>
-
+            <RestaurantCarInfo />
         </div>
     )
 }

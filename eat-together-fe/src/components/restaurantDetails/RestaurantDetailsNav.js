@@ -16,7 +16,7 @@ function RestaurantDetailsNav() {
           </ul>
       </nav>
       */
-      <div className="service_container">
+      <div className="restaurant_details_container">
           <nav className="navbar">
               <ul className="nav-menu">
                   <li className="nav-item">홈</li>
