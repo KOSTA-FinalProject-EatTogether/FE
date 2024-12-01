@@ -16,7 +16,7 @@ const MenuItem = () => {
                         <p className="restaurant_details_menu_price">110,000원</p>
                     </div>
                     <div className="menu_image_container">
-                        <img src={seafoodTowerImg} alt="Seafood Tower" className="restaurant_details_menu_image"/>
+                        <img src={seafoodTowerImg} alt="Seafood Tower" className="restaurant_details_wmenu_image"/>
                     </div>
                 </div>
         </div>
