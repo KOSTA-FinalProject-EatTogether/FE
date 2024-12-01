@@ -20,19 +20,16 @@ const RestaurantManageToReservation = () => {
 
     return (
         <div className="managing_to_consumer_container">
-            <div className="restaurant_details_title"><h2>줄서기 현황</h2>
-                <p>현재 예약된 팀 수: {reservations.length}팀</p>
-            </div>
-
+            <div className="restaurant_details_title"><h2>줄서기 현황</h2></div>
             {reservations.map((reservation) => (
                 <div key={reservation.id} className="managing_to_consumer_section">
                     <div className="reservation_info">{reservation.info}</div>
                     <div className="reservation_status">현재 상태: {reservation.status}</div>
                     <button
                         className="reservation_status_button"
-                        onClick={() => handleChangeStatus(reservation.id, '입장')}
+                        onClick={() => handleChangeStatus(reservation.id, '예약')}
                     >
-                        입장
+                        예약
                     </button>
                     <button
                         className="reservation_status_button"
