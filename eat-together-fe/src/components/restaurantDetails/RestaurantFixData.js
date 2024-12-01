@@ -1,11 +1,11 @@
 import React, {useState} from 'react'; // 리액트와 useState 훅을 불러옵니다.
-import '../../css/restaurantDetailsCss/Restaurant.css';
+import '../../css/restaurantDetailsCss/RestaurantFixData.css';
 import ImageSlider from './ImageSlider';
 import LocationPoint from '../../assets/location_pinpoint.png';
 import Coin from '../../assets/coin_won_icon.png';
 import Clock from '../../assets/clock_icon.png';
 
-function Restaurant() {
+function RestaurantFixData() {
     // 2. 상태 변수 선언 및 초기화
     const [showTimeDetails, setShowTimeDetails] = useState(false);
     const [showAddressDetails, setShowAddressDetails] = useState(false);
@@ -20,7 +20,7 @@ function Restaurant() {
     }
 
     return (
-        <div className={"container"}>
+        <div className={"fix_data_container"}>
             <div className="restaurant-listing">
                 <ImageSlider/>
                 <div className="restaurant-info">
@@ -74,7 +74,7 @@ function Restaurant() {
                             </div>
                         </div>
                     <div className="tags">
-                        <span className="tag">콜키지 가능</span>
+                           <span className="tag">콜키지 가능</span>
                         <span className="tag">콜키지 프리</span>
                         <span className="tag">단체 이용 가능</span>
                         <span className="tag">아기의자</span>
@@ -86,4 +86,4 @@ function Restaurant() {
     );
 }
 
-export default Restaurant;
+export default RestaurantFixData;
