@@ -2,6 +2,7 @@ import RestaurantFixData from "../../components/restaurantDetails/RestaurantFixD
 import RestaurantDetailsNav from "../../components/restaurantDetails/RestaurantDetailsNav";
 import RestaurantDetailsService from "../../components/restaurantDetails/RestaurantDetailsService";
 import RestaurantCarInfo from "../../components/restaurantDetails/RestaurantCarInfo";
+import RestaurantCorkage  from "../../components/restaurantDetails/RestaurantCorkage";
 import React from "react";
 
 const RestaurantDetailsPage = () => {
@@ -13,6 +14,7 @@ const RestaurantDetailsPage = () => {
             <RestaurantDetailsNav/>
             <RestaurantDetailsService/>
             <RestaurantCarInfo />
+            <RestaurantCorkage/>
         </div>
     )
 }

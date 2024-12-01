@@ -27,4 +27,5 @@
     height: 3px; /* 구분선의 높이 */
     background-color: #ccc; /* 구분선 색상 */
     margin-top: 15px; /* 텍스트와 구분선 사이의 간격 */
+    margin-bottom:10px;
 }
