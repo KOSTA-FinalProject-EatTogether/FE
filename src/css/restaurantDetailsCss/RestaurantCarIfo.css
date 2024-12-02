@@ -1,0 +1,22 @@
+
+.restaurant_car_info_layout {
+    background-color: #fff;
+    overflow: hidden;
+    padding: 0 30px; /* 내부 여백 추가 */
+}
+
+.restaurant_car_info_content {
+    word-wrap: break-word; /* 긴 단어를 줄바꿈 */
+    word-break: break-all; /* 모든 단어를 줄바꿈 */
+    white-space: normal; /* 일반적인 공백 처리 */
+}
+
+.restaurant_car_info_layout::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 3px; /* 구분선의 높이 */
+    background-color: #ccc; /* 구분선 색상 */
+    margin-top: 15px; /* 텍스트와 구분선 사이의 간격 */
+    margin-bottom:10px;
+}

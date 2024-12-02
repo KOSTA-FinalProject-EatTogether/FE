@@ -1,0 +1,103 @@
+/* ReviewSection.css */
+.restaurant_details_review_container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 300px; /* 원하는 너비로 조정 */
+    margin: 0 auto; /* 중앙 정렬 */
+}
+.restaurant_details_review_layout{
+
+}
+
+.restaurant_details_review_title {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.restaurant_details_review_rating {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.restaurant_details_rating_score {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333;
+    margin-right: 5px;
+}
+
+.restaurant_details_rating_count {
+    font-size: 1em;
+    color: #777;
+}
+
+.restaurant_details_review_highlight {
+    margin-bottom: 20px;
+}
+
+.restaurant_details_highlight_top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.restaurant_details_highlight_name {
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.restaurant_details_highlight_date {
+    font-size: 0.9em;
+    color: #777;
+}
+
+.restaurant_details_highlight_content {
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.restaurant_details_highlight_image {
+    text-align: center;
+}
+
+.restaurant_details_review_image {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.restaurant_details_review_button_container {
+    text-align: center;
+}
+
+.restaurant_details_review_button {
+    width: 100%;
+    padding: 10px 0;
+    background-color: #d3d3d3;
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.restaurant_details_review_layout::after{
+    content: "";
+    display: block;
+    width: 100%;
+    height: 7px; /* 구분선의 높이 */
+    background-color: #ccc; /* 구분선 색상 */
+    margin-top: 15px; /* 텍스트와 구분선 사이의 간격 */
+}
+
+.restaurant_details_right_arrow_icon {
+    margin-left: 5px;
+}

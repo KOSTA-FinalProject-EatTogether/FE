@@ -1,0 +1,57 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+}
+
+/* 기본 네비게이션 바 스타일 */
+.navbar {
+    background-color: #fff;
+    overflow: hidden;
+    padding: 0 30px; /* 내부 여백 추가 */
+}
+
+
+
+/* 메뉴 항목들 설정 */
+.nav-menu {
+    list-style: none; /* 리스트 스타일 제거 */
+    display: flex; /* 메뉴 항목들 가로 배치 */
+    justify-content: flex-start; /* 메뉴 항목을 왼쪽 정렬 */
+    padding: 0;
+    margin: 0;
+}
+
+/* 개별 메뉴 항목 스타일 */
+.nav-item {
+    display: inline-block;
+    margin-right: 50px;
+    margin-left: 10px;
+    font-size: 30px;
+}
+
+.nav-item a {
+    display: block;
+    padding: 14px 30px; /* 항목 패딩 */
+    color: #000;
+    text-decoration: none; /* 텍스트 장식 제거 */
+    font-size: 16px;
+}
+
+/* 항목 호버 스타일 */
+.nav-item a:hover {
+    background-color: #Ffffff; /* 호버 시 배경 색상 변경 */
+}
+
+.nav-item a.active {
+    border-bottom: 3px solid #000;
+}
+.navbar::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 7px; /* 구분선의 높이 */
+    background-color: #ccc; /* 구분선 색상 */
+    margin-top: 15px; /* 텍스트와 구분선 사이의 간격 */
+}
