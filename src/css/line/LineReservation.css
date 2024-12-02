@@ -1,0 +1,78 @@
+.line-reservation-container {
+    font-family: Arial, sans-serif;        /* 폰트 패밀리 설정 */
+    background-color: #f0f0f0;             /* 배경색 설정 */
+    display: flex;                         /* flexbox 사용 */
+    flex-direction: column;                /* 세로 방향으로 정렬 */
+    align-items: center;                   /* 수평 중앙 정렬 */
+    padding: 20px;                         /* 내부 여백 설정 */
+    border-radius: 10px;                   /* 둥근 모서리 설정 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 그림자 설정 */
+    width: 100%;                           /* 너비 100% 설정 */
+    max-width: 500px;                      /* 최대 너비 설정 */
+    margin: 20px auto;                     /* 상하 여백 및 가로 중앙 정렬 */
+  }
+  
+  h2 {
+    margin-bottom: 20px;                   /* 아래쪽 여백 설정 */
+  }
+  
+  .count-display {
+    display: flex;                         /* flexbox 사용 */
+    flex-direction: column;                /* 세로 방향으로 정렬 */
+    width: 100%;                           /* 너비 100% 설정 */
+    margin-bottom: 20px;                   /* 아래쪽 여백 설정 */
+  }
+  
+  .count-item {
+    display: flex;                         /* flexbox 사용 */
+    justify-content: space-between;        /* 좌우 간격 균등 배치 */
+    align-items: center;                   /* 수평 중앙 정렬 */
+    width: 100%;                           /* 너비 100% 설정 */
+    margin-bottom: 10px;                   /* 아래쪽 여백 설정 */
+  }
+  
+  .label {
+    flex: 1;                               /* 가변 너비 설정 */
+    text-align: left;                      /* 왼쪽 정렬 */
+  }
+  
+  .button-group {
+    display: flex;                         /* flexbox 사용 */
+    align-items: center;                   /* 수평 중앙 정렬 */
+  }
+  
+  .count-button {
+    width: 40px;                           /* 버튼 너비 설정 */
+    height: 40px;                          /* 버튼 높이 설정 */
+    background-color: #ff6f61;             /* 버튼 배경색 설정 */
+    color: white;                          /* 텍스트 색상 설정 */
+    border: none;                          /* 테두리 제거 */
+    cursor: pointer;                       /* 커서 포인터 설정 */
+    margin: 0 5px;                         /* 좌우 외부 여백 설정 */
+    border-radius: 5px;                    /* 둥근 모서리 설정 */
+    font-size: 1.2em;                      /* 폰트 크기 설정 */
+  }
+  
+  .count-button:hover {
+    background-color: #ff3b2e;             /* 호버 시 배경색 설정 */
+  }
+  
+  .count-item span {
+    display: inline-block;                 /* inline-block으로 설정 */
+    width: 40px;                           /* 숫자 너비 설정 */
+    text-align: center;                    /* 중앙 정렬 */
+    font-size: 1.2em;                      /* 폰트 크기 설정 */
+  }
+  
+  .action-buttons {
+    display: flex;                         /* flexbox 사용 */
+    justify-content: space-between;        /* 요소 간 간격 설정 */
+    width: 100%;
+    gap: 30px;                           /* 너비 100% 설정 */
+  }
+  
+  .cancel, .complete {
+    width: 100px;                          /* 너비 설정 */
+    padding: 10px;                         /* 내부 여백 설정 */
+  }
+  

@@ -1,0 +1,82 @@
+/* 레스토랑 항목 */
+.restaurant-item {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 300px;
+    margin-right: 300px;
+  }
+  
+  /* 레스토랑 헤더 */
+  .restaurant-header {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* 레스토랑 이름과 대기 팀 정보 사이의 간격 */
+  }
+  
+  /* 레스토랑 이름 */
+  .restaurant-namename {
+    font-size: 1.5em;
+  }
+  
+  /* 대기 팀 정보 */
+  .restaurant-waiting {
+    font-size: 1em; /* 텍스트 크기 조정 */
+    color: #555;
+  }
+  
+  /* 레스토랑 서브 헤더 */
+  .restaurant-subheader {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* 평점과 서브 타이틀 사이의 간격 */
+  }
+  
+  /* 레스토랑 평점 */
+  .restaurant-rating {
+    font-size: 1.0em;
+    color: #555;
+  }
+  
+  /* 레스토랑 서브 타이틀 */
+  .restaurant-subtitle {
+    font-size: 1em;
+    color: #555;
+  }
+  
+  /* 레스토랑 이미지 */
+  .restaurant-images {
+    display: flex;
+    gap: 50px;
+  }
+  
+  /* 더미 이미지 스타일 */
+  .dummy-image {
+    width: 300px;
+    height: 300px;
+    background-color: #e0e0e0; /* 임시 배경 색상 */
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: #555; /* 텍스트 색상 */
+  }
+  
+  /* 레스토랑 정보 */
+  .restaurant-info h2 {
+    margin: 0;
+    font-size: 1.5em;
+  }
+  
+  .restaurant-info p {
+    margin: 0;
+    color: #555;
+  }
+  

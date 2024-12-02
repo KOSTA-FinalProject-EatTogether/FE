@@ -6,9 +6,9 @@ import RestaurantNewsModifyComponent from '../../components/restaurantNews/Resta
 
 const RestaurantNewsModifyPage = () => {
     return(
-        <BasicBodyLayout>
+        <div>
             <RestaurantNewsModifyComponent/>
-        </BasicBodyLayout>
+        </div>
     )
 
 };

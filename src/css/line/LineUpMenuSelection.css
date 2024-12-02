@@ -1,0 +1,173 @@
+.menu-container {
+    font-family: Arial, sans-serif;        /* 폰트 패밀리 설정 */
+    background-color: #ffffff;             /* 배경색 설정 */
+    padding: 20px;                         /* 내부 여백 설정 */
+    border-radius: 10px;                   /* 둥근 모서리 설정 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 그림자 설정 */
+    max-width: 600px;                      /* 최대 너비 설정 */
+    margin: 20px auto;                     /* 상하 여백 및 중앙 정렬 */
+  }
+  
+  .restaurant-namenamename {
+    text-align: center;                    /* 텍스트 중앙 정렬 */
+    font-size: 2em;                        /* 폰트 크기 설정 */
+    margin-bottom: 20px;                   /* 아래쪽 여백 설정 */
+  }
+  
+  .menu-tabs {
+    display: flex;                         /* flexbox 사용 */
+    justify-content: space-around;         /* 좌우 간격 균등 배치 */
+    margin-bottom: 20px;                   /* 아래쪽 여백 설정 */
+  }
+  
+  .tab {
+    padding: 10px 20px;                    /* 내부 여백 설정 */
+    border: none;                          /* 테두리 제거 */
+    background-color: #f0f0f0;             /* 배경색 설정 */
+    cursor: pointer;                       /* 커서 포인터 설정 */
+    border-radius: 5px;                    /* 둥근 모서리 설정 */
+  }
+  
+  .tab.active {
+    background-color: #007bff;             /* 활성 탭 배경색 설정 */
+    color: white;                          /* 활성 탭 텍스트 색상 설정 */
+  }
+  
+  .menu-items {
+    display: flex;                         /* flexbox 사용 */
+    flex-direction: column;                /* 세로 방향으로 정렬 */
+    gap: 20px;                             /* 요소 간 간격 설정 */
+  }
+  
+  .menu-item {
+    display: flex;                         /* flexbox 사용 */
+    flex-direction: row;                   /* 가로 방향으로 정렬 */
+    align-items: center;                   /* 수평 중앙 정렬 */
+    gap: 20px;                             /* 요소 간 간격 설정 */
+    padding: 10px;                         /* 내부 여백 설정 */
+    border: 1px solid #ddd;                /* 테두리 설정 */
+    border-radius: 5px;                    /* 둥근 모서리 설정 */
+    background-color: #fff;                /* 버튼 배경색 설정 */
+    cursor: pointer;                       /* 커서 포인터 설정 */
+    text-align: left;                      /* 텍스트 왼쪽 정렬 */
+    width: 100%;                           /* 너비 100% 설정 */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 버튼 그림자 설정 */
+  }
+  
+  .menu-item:hover {
+    background-color: #f9f9f9;             /* 호버 시 배경색 설정 */
+  }
+  
+  .menu-photophoto img {
+    width: 100px;                          /* 사진 너비 설정 */
+    height: 100px;                         /* 사진 높이 설정 */
+    object-fit: cover;                     /* 이미지 커버 설정 */
+    border-radius: 5px;                    /* 둥근 모서리 설정 */
+  }
+  
+  .menu-details {
+    display: flex;                         /* flexbox 사용 */
+    flex-direction: column;                /* 세로 방향으로 정렬 */
+    gap: 5px;                              /* 요소 간 간격 설정 */
+  }
+  
+  .menu-name {
+    font-size: 1.2em;                      /* 폰트 크기 설정 */
+    font-weight: bold;                     /* 텍스트 두껍게 설정 */
+  }
+  
+  .menu-price {
+    color: #007bff;                        /* 가격 텍스트 색상 설정 */
+  }
+  
+  .sold-out {
+    color: red;                            /* 품절 텍스트 색상 설정 */
+    font-weight: bold;                     /* 텍스트 두껍게 설정 */
+  }
+  .menu-container {
+    font-family: Arial, sans-serif;        /* 폰트 패밀리 설정 */
+    background-color: #ffffff;             /* 배경색 설정 */
+    padding: 20px;                         /* 내부 여백 설정 */
+    border-radius: 10px;                   /* 둥근 모서리 설정 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 그림자 설정 */
+    max-width: 600px;                      /* 최대 너비 설정 */
+    margin: 20px auto;                     /* 상하 여백 및 중앙 정렬 */
+  }
+  
+  .restaurant-namenamename {
+    text-align: center;                    /* 텍스트 중앙 정렬 */
+    font-size: 2em;                        /* 폰트 크기 설정 */
+    margin-bottom: 20px;                   /* 아래쪽 여백 설정 */
+  }
+  
+  .menu-tabs {
+    display: flex;                         /* flexbox 사용 */
+    justify-content: space-around;         /* 좌우 간격 균등 배치 */
+    margin-bottom: 20px;                   /* 아래쪽 여백 설정 */
+  }
+  
+  .tab {
+    padding: 10px 20px;                    /* 내부 여백 설정 */
+    border: none;                          /* 테두리 제거 */
+    background-color: #f0f0f0;             /* 배경색 설정 */
+    cursor: pointer;                       /* 커서 포인터 설정 */
+    border-radius: 5px;                    /* 둥근 모서리 설정 */
+  }
+  
+  .tab.active {
+    background-color: #007bff;             /* 활성 탭 배경색 설정 */
+    color: white;                          /* 활성 탭 텍스트 색상 설정 */
+  }
+  
+  .menu-items {
+    display: flex;                         /* flexbox 사용 */
+    flex-direction: column;                /* 세로 방향으로 정렬 */
+    gap: 20px;                             /* 요소 간 간격 설정 */
+  }
+  
+  .menu-item {
+    display: flex;                         /* flexbox 사용 */
+    flex-direction: row;                   /* 가로 방향으로 정렬 */
+    align-items: center;                   /* 수평 중앙 정렬 */
+    gap: 20px;                             /* 요소 간 간격 설정 */
+    padding: 10px;                         /* 내부 여백 설정 */
+    border: 1px solid #ddd;                /* 테두리 설정 */
+    border-radius: 5px;                    /* 둥근 모서리 설정 */
+    background-color: #fff;                /* 버튼 배경색 설정 */
+    cursor: pointer;                       /* 커서 포인터 설정 */
+    text-align: left;                      /* 텍스트 왼쪽 정렬 */
+    width: 100%;                           /* 너비 100% 설정 */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 버튼 그림자 설정 */
+  }
+  
+  .menu-item:hover {
+    background-color: #f9f9f9;             /* 호버 시 배경색 설정 */
+  }
+  
+  .menu-photo img {
+    width: 100px;                          /* 사진 너비 설정 */
+    height: 100px;                         /* 사진 높이 설정 */
+    object-fit: cover;                     /* 이미지 커버 설정 */
+    border-radius: 5px;                    /* 둥근 모서리 설정 */
+  }
+  
+  .menu-details {
+    display: flex;                         /* flexbox 사용 */
+    flex-direction: column;                /* 세로 방향으로 정렬 */
+    gap: 5px;                              /* 요소 간 간격 설정 */
+  }
+  
+  .menu-name {
+    font-size: 1.2em;                      /* 폰트 크기 설정 */
+    font-weight: bold;                     /* 텍스트 두껍게 설정 */
+  }
+  
+  .menu-price {
+    color: #007bff;                        /* 가격 텍스트 색상 설정 */
+  }
+  
+  .sold-out {
+    color: red;                            /* 품절 텍스트 색상 설정 */
+    font-weight: bold;                     /* 텍스트 두껍게 설정 */
+  }
+    

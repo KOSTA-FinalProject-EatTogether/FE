@@ -1,0 +1,124 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+  }
+  
+  .topadmin-restaurant-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .topadmin-restaurant-header {
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+  }
+  
+  .topadmin-search-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .topadmin-search-input {
+    width: 20%; /* 검색란 너비 줄이기 */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+  }
+  
+  .topadmin-search-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .topadmin-search-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .topadmin-restaurant-list {
+    max-height: 400px;
+    overflow-y: auto;
+  }
+  
+  .topadmin-restaurant-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .topadmin-restaurant-info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .topadmin-restaurant-name,
+  .topadmin-restaurant-address,
+  .topadmin-restaurant-status {
+    margin-bottom: 5px;
+  }
+  
+  .topadmin-close-button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #ff4d4d;
+    color: #fff;
+  }
+  
+  .topadmin-close-button:hover {
+    background-color: #ff1a1a;
+  }
+  
+  /* 모달 스타일 */
+  .topadmin-modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  }
+  
+  .topadmin-modal-overlay {
+    background-color: rgba(0, 0, 0, 0.75);
+  }
+  
+  .topadmin-modal-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .topadmin-modal-actions button {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .topadmin-modal-actions button:hover {
+    background-color: #0056b3;
+  }
+  

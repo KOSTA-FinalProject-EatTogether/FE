@@ -3,9 +3,9 @@ import BasicBodyLayout from "../../layouts/common/BasicBodyLayout"
 
 const ReservationManageTimeSettingPage = () =>{
     return(
-        <BasicBodyLayout>
+        <div>
             <ReservationTimeSettingComponent/>
-        </BasicBodyLayout>
+        </div>
     )
 }
 export default ReservationManageTimeSettingPage

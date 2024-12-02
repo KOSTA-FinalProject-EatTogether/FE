@@ -17,7 +17,7 @@ const RestaurantModifyPage = () => {
 
 
     return (
-        <BasicBodyLayout>
+        <div>
             <RestaurantFixDataComponent/>
             <RestaurantDetailsNavComponent/>
             <RestaurantDetailsServiceComponent/>
@@ -30,7 +30,7 @@ const RestaurantModifyPage = () => {
             <RestaurantDetailsReviewComponent/>
             <RestaurantDetailsLocationComponent/>
             <RestaurantManageModifyButtonComponent/>
-        </BasicBodyLayout>
+        </div>
     )
 }
 export default RestaurantModifyPage;

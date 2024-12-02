@@ -3,9 +3,9 @@ import ReservationMainComponent from "../../components/reservations/ReservationM
 
 const ReservationMainPage = () =>{
     return(
-        <BasicBodyLayout>
+        <div>
             <ReservationMainComponent/>
-        </BasicBodyLayout>
+        </div>
     )
 }
 

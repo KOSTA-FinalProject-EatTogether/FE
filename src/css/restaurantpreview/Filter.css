@@ -1,0 +1,22 @@
+/* 필터 버튼 섹션 */
+.filter-container {
+    display: flex;
+    justify-content: left;
+    margin-bottom: 20px;
+    margin-left: 295px;
+  }
+  
+  .filter-button {
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    padding: 10px 20px;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  .filter-button:hover {
+    background-color: #e0e0e0;
+  }
+  

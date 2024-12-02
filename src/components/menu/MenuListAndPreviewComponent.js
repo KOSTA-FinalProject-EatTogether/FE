@@ -45,65 +45,28 @@ export const menuData = [
 export const MenuListComponent = () => {
     return (
         <div className="container mt-4">
-            <h2 className="mb-4">전체 메뉴 목록</h2>
+            <h2 className="mb-4 fs-4">메뉴</h2>
             {menuData.map((item) => (
                 <div key={item.id} className="card mb-3">
                     <div className="card-body d-flex justify-content-between align-items-center">
-                        <h5 className="card-title">{item.name}</h5>
-                        <p className="card-text text-muted mb-2">
-                            {item.description}
-                        </p>
-                        <span className="badge bg-primary">
-                            {item.price.toLocaleString()}원
-                        </span>
-                    </div>
-                    <div className="mt-2">
-                        <button className="btn btn-outline-primary">수정</button>
-                    </div>
-                    <div className="col-md-4 d-flex align-items-center justify-content-center">
-                        <img
-                            src={item.image}
-                            alt={item.name}
-                            className="rounded object-fit-cover"
-                            style={{
-                                width: '100px',
-                                height: '100px'
-                            }}
-                        />
-                    </div>
-                </div>
-            ))}
-        </div>
-    );
-};
-
-// 메뉴 미리보기 컴포넌트 (다른 페이지에서 사용)
-export const MenuPreview = () => {
-    const previewMenus = menuData.slice(0, 3);
-
-    return (
-        <div className="container mt-4">
-            <h2 className="mb-4">메뉴 미리보기</h2>
-            {previewMenus.map((item) => (
-                <div key={item.id} className="card mb-3">
-                    <div className="row g-0">
-                        <div className="col-md-8">
-                            <div className="card-body">
+                        <div>
                             <h5 className="card-title">{item.name}</h5>
-                                <p className="card-text text-muted">
-                                    {item.description}
-                                </p>
-                                <span className="badge bg-primary">
-                                    {item.price.toLocaleString()}원
-                                </span>
+                            <p className="card-text text-muted mb-2">
+                                {item.description}
+                            </p>
+                            <span className="badge bg-primary">
+                                {item.price.toLocaleString()}원
+                            </span>
+                            <div className="mt-2">
+                                <button className="btn btn-outline-primary">수정</button>
                             </div>
                         </div>
-                        <div className="col-md-4 d-flex align-items-center justify-content-center">
-                            <img
-                                src={item.image}
+                        <div className="d-flex align-items-center justify-content-center">
+                            <img 
+                                src={item.image} 
                                 alt={item.name}
                                 className="rounded object-fit-cover"
-                                style={{
+                                style={{ 
                                     width: '100px',
                                     height: '100px'
                                 }}
@@ -112,13 +75,51 @@ export const MenuPreview = () => {
                     </div>
                 </div>
             ))}
-            <div className="text-center">
-                <a href="/owner/menulist" className="btn btn-outline-primary">
+        </div>
+    );
+ };
+
+ export const MenuPreview = () => {
+    const previewMenus = menuData.slice(0, 3);
+ 
+    return (
+        <div className="container mt-4">
+            <h2 className="mb-4 fs-5">메뉴 미리보기</h2>
+            {previewMenus.map((item) => (
+                <div key={item.id} className="card mb-3">
+                    <div className="row g-0">
+                        <div className="col-8">
+                            <div className="card-body">
+                                <h6 className="card-title mb-2">{item.name}</h6>
+                                <p className="card-text text-muted small mb-2">
+                                    {item.description}
+                                </p>
+                                <span className="badge bg-primary">
+                                    {item.price.toLocaleString()}원
+                                </span>
+                            </div>
+                        </div>
+                        <div className="col-4 d-flex align-items-center justify-content-center p-2">
+                            <img
+                                src={item.image}
+                                alt={item.name}
+                                className="rounded object-fit-cover"
+                                style={{
+                                    width: '90px',
+                                    height: '90px'
+                                }}
+                            />
+                        </div>
+                    </div>
+                </div>
+            ))}
+            <div className="text-center mt-3">
+                <a href="/owner/menulist" className="btn btn-sm btn-outline-primary">
                     전체 메뉴 보기
                 </a>
             </div>
         </div>
     );
-};
+ };
 
 export default MenuListComponent;

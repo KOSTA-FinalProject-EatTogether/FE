@@ -70,72 +70,70 @@ const SAMPLE_REVIEWS = [
       </div>
     );
   };
-  
- export const ReviewPreview = () => {
+  export const ReviewPreview = () => {
+    const previewReviews = SAMPLE_REVIEWS.slice(0, 2); // 최근 2개 리뷰만 표시
+ 
     return (
-      <div className="container py-3">
-        <div className="card">
-          <div className="card-header d-flex justify-content-between align-items-center">
-            <h5 className="mb-0">최근 리뷰</h5>
-            <span className="badge bg-primary">{SAMPLE_REVIEWS.length}개</span>
-          </div>
-          <div className="card-body p-0">
-            <div className="list-group list-group-flush">
-              {SAMPLE_REVIEWS.map(review => (
-                <div key={review.id} className="list-group-item p-3">
-                  <div className="d-flex justify-content-between mb-2">
-                    <div>
-                      <span className="fw-bold">{review.userName}</span>
-                      <span className="mx-2 text-muted">|</span>
-                      <span className="text-warning">{'★'.repeat(review.rating)}</span>
-                      <span className="text-muted">{'★'.repeat(5-review.rating)}</span>
-                    </div>
-                    <small className="text-muted">
-                      {new Date(review.date).toLocaleDateString()}
-                    </small>
-                  </div>
-  
-                  <p className="mb-2">{review.content}</p>
-  
-                  {review.images.length > 0 && (
-                    <div className="d-flex gap-2 mb-2">
-                      {review.images.map((image, index) => (
-                        <div 
-                          key={index}
-                          className="bg-light"
-                          style={{
-                            width: '60px',
-                            height: '60px',
-                            borderRadius: '4px'
-                          }}
-                        />
-                      ))}
-                    </div>
-                  )}
-  
-                  {review.reply && (
-                    <div className="bg-light rounded p-3 mt-2">
-                      <div className="d-flex align-items-center mb-2">
-                        <span className="badge bg-primary me-2">사장님</span>
-                        <small className="text-muted">답변</small>
-                      </div>
-                      <p className="mb-0 small">{review.reply}</p>
-                    </div>
-                  )}
+        <div className="container mt-4">
+            <h2 className="mb-4 fs-5 d-flex justify-content-between align-items-center">
+                최근 리뷰
+                <span className="badge bg-primary">{SAMPLE_REVIEWS.length}개</span>
+            </h2>
+            <div className="card">
+                <div className="card-body p-0">
+                    {previewReviews.map(review => (
+                        <div key={review.id} className="border-bottom p-3">
+                            <div className="d-flex justify-content-between mb-2">
+                                <div>
+                                    <span className="fw-bold small">{review.userName}</span>
+                                    <span className="mx-2 text-muted small">|</span>
+                                    <span className="text-warning small">{'★'.repeat(review.rating)}</span>
+                                    <span className="text-muted small">{'★'.repeat(5-review.rating)}</span>
+                                </div>
+                                <small className="text-muted">
+                                    {new Date(review.date).toLocaleDateString()}
+                                </small>
+                            </div>
+ 
+                            <p className="mb-2 small">{review.content}</p>
+ 
+                            {review.images.length > 0 && (
+                                <div className="d-flex gap-2 mb-2">
+                                    {review.images.map((image, index) => (
+                                        <div
+                                            key={index}
+                                            className="bg-light"
+                                            style={{
+                                                width: '50px',
+                                                height: '50px',
+                                                borderRadius: '4px'
+                                            }}
+                                        />
+                                    ))}
+                                </div>
+                            )}
+ 
+                            {review.reply && (
+                                <div className="bg-light rounded p-2 mt-2">
+                                    <div className="d-flex align-items-center mb-1">
+                                        <span className="badge bg-primary me-2">사장님</span>
+                                    </div>
+                                    <p className="mb-0 small">{review.reply}</p>
+                                </div>
+                            )}
+                        </div>
+                    ))}
                 </div>
-              ))}
             </div>
-            <div className="text-center">
-                <a href={ReviewList} className="btn btn-outline-primary">
+            <div className="text-center mt-3">
+                <a href="/reviews" className="btn btn-sm btn-outline-primary">
                     전체 리뷰 보기
                 </a>
             </div>
-          </div>
         </div>
-      </div>
     );
-  };
-
+ };
+ 
 export const ReviewList = () => {
     return (
       <div className="card">

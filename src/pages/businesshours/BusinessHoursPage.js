@@ -4,9 +4,7 @@ import BasicBodyLayout from "../../layouts/common/BasicBodyLayout"
 const BusinessHoursPage = () =>{
     return(
         <div>
-            <BasicBodyLayout>
                 <BusinessHoursComponent/>
-            </BasicBodyLayout>
         </div>
     )
 }

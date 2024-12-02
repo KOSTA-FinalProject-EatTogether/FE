@@ -8,11 +8,11 @@ const RestaurantDetailsPage = () => {
 
 
     return (
-        <BasicBodyLayout>
+        <div>
             <RestaurantFixDataComponent/>
             <RestaurantDetailsNavComponent/>
             {/* <RestaurantDetailMainComponent/> */}
-        </BasicBodyLayout>
+        </div>
     )
 }
 export default RestaurantDetailsPage;

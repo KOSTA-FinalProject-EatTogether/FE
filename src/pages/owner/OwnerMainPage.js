@@ -5,7 +5,7 @@ import OwnerRestaurantIntroPage from "./OwnerRestaurantIntroPage";
 
 const OwnerMainPage = () => {
     return (    
-        <BasicBodyLayout>
+        <div>
             <div>
             <h1>식당 관리 페이지 메인</h1>
             <div>
@@ -57,7 +57,7 @@ const OwnerMainPage = () => {
         <div>
             <h2><a href="../owner/newslist">식당 소식 관리</a></h2>
         </div>
-    </BasicBodyLayout>    
+    </div>
     );
 };
 

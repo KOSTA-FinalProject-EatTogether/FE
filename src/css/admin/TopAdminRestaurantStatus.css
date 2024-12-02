@@ -1,0 +1,94 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+  }
+  
+  .restaurant-status-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .restaurant-status-header {
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+  }
+  
+  .search-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .search-input {
+    width: 20%; /* 검색란 너비 줄이기 */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+  }
+  
+  .search-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .search-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .restaurant-list {
+    max-height: 400px;
+    overflow-y: auto;
+  }
+  
+  .restaurant-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    position: relative; /* 상대적 위치 설정 */
+  }
+  
+  .restaurant-info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .restaurant-name,
+  .restaurant-business-number,
+  .restaurant-address,
+  .restaurant-phone,
+  .restaurant-email,
+  .restaurant-hours,
+  .restaurant-menu,
+  .restaurant-additional-info {
+    margin-bottom: 5px;
+  }
+  
+  .details-button {
+    position: absolute;
+    bottom: 10px; /* 아래로 이동 */
+    right: 10px; /* 오른쪽으로 이동 */
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .details-button:hover {
+    background-color: #0056b3;
+  }
+  

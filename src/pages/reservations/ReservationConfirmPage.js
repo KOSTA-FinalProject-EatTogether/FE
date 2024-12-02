@@ -4,9 +4,9 @@ import BasicBodyLayout from "../../layouts/common/BasicBodyLayout"
 
 const ReservationConfirmPage = () =>{
     return(
-        <BasicBodyLayout>
+        <div>
             {/* <ReservationConfirmComponent/> */}
-        </BasicBodyLayout>
+        </div>
     )
 }
 export default ReservationConfirmPage

@@ -3,9 +3,9 @@ import BasicBodyLayout from "../../layouts/common/BasicBodyLayout"
 
 const BusinessHoursModifyPage = () =>{
     return(
-        <BasicBodyLayout>
+        <div>
             <BusinessHoursModifyComponent/>
-        </BasicBodyLayout>
+        </div>
     )
 }
 

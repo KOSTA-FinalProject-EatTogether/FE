@@ -13,7 +13,7 @@ const RestaurantButtonDetailsPage = () => {
 
 
     return (
-        <BasicBodyLayout>
+        <div>
             <RestaurantFixDataComponent/>
             <RestaurantDetailsNavComponent/>
             <RestaurantButtonDetailsComponent/>
@@ -22,7 +22,7 @@ const RestaurantButtonDetailsPage = () => {
             <RestaurantCarInfoComponent/>
             <RestaurantCorkageComponent/>
             <RestaurantButtonDetailsComponent/>
-        </BasicBodyLayout>
+        </div>
     )
 }
 export default RestaurantButtonDetailsPage;

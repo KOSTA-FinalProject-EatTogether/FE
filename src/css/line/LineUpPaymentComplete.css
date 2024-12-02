@@ -1,0 +1,79 @@
+.complete-payment-complete-container {
+    font-family: Arial, sans-serif;        /* 폰트 패밀리 설정 */
+    background-color: #ffffff;             /* 배경색 설정 */
+    padding: 20px;                         /* 내부 여백 설정 */
+    border-radius: 10px;                   /* 둥근 모서리 설정 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 그림자 설정 */
+    max-width: 600px;                      /* 최대 너비 설정 */
+    margin: 20px auto;                     /* 상하 여백 및 중앙 정렬 */
+    text-align: center;                    /* 텍스트 중앙 정렬 */
+  }
+  
+  .complete-share-button {
+    background-color: #007bff;             /* 버튼 배경색 설정 */
+    color: white;                          /* 텍스트 색상 설정 */
+    border: none;                          /* 테두리 제거 */
+    padding: 10px 20px;                    /* 내부 여백 설정 */
+    border-radius: 5px;                    /* 둥근 모서리 설정 */
+    cursor: pointer;                       /* 커서 포인터 설정 */
+    font-size: 1em;                        /* 폰트 크기 설정 */
+    text-align: center;                    /* 텍스트 중앙 정렬 */
+    margin-bottom: 20px;                   /* 아래쪽 여백 설정 */
+  }
+  
+  .complete-title {
+    font-size: 2em;                        /* 폰트 크기 설정 */
+    font-weight: bold;                     /* 텍스트 두껍게 설정 */
+    margin-bottom: 20px;                   /* 아래쪽 여백 설정 */
+  }
+  
+  .complete-status-boxes {
+    display: flex;                         /* flexbox 사용 */
+    justify-content: center;               /* 중앙 정렬 */
+    gap: 10px;                             /* 요소 간 간격 설정 */
+    margin-bottom: 20px;                   /* 아래쪽 여백 설정 */
+  }
+  
+  .complete-status-box {
+    background-color: #f0f0f0;             /* 배경색 설정 */
+    padding: 20px;                         /* 내부 여백 설정 */
+    border-radius: 5px;                    /* 둥근 모서리 설정 */
+    font-size: 1.5em;                      /* 폰트 크기 설정 */
+    font-weight: bold;                     /* 텍스트 두껍게 설정 */
+  }
+  
+  .complete-info-table {
+    width: 100%;                           /* 테이블 너비 설정 */
+    margin-bottom: 20px;                   /* 아래쪽 여백 설정 */
+  }
+  
+  .complete-info-table .complete-label {
+    text-align: left;                      /* 텍스트 왼쪽 정렬 */
+    font-weight: bold;                     /* 텍스트 두껍게 설정 */
+  }
+  
+  .complete-info-table .complete-value {
+    text-align: right;                     /* 텍스트 오른쪽 정렬 */
+  }
+  
+  .complete-buttons {
+    display: flex;                         /* flexbox 사용 */
+    justify-content: space-between;        /* 좌우 간격 균등 배치 */
+  }
+  
+  .complete-close-button, .complete-history-button {
+    background-color: #007bff;             /* 버튼 배경색 설정 */
+    color: white;                          /* 텍스트 색상 설정 */
+    border: none;                          /* 테두리 제거 */
+    padding: 10px 20px;                    /* 내부 여백 설정 */
+    border-radius: 5px;                    /* 둥근 모서리 설정 */
+    cursor: pointer;                       /* 커서 포인터 설정 */
+    font-size: 1em;                        /* 폰트 크기 설정 */
+    text-align: center;                    /* 텍스트 중앙 정렬 */
+    width: 45%;                            /* 버튼 너비 설정 */
+  }
+  
+  .complete-close-button:hover, .complete-history-button:hover {
+    background-color: #0056b3;             /* 호버 시 배경색 설정 */
+  }
+  

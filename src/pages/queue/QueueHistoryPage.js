@@ -3,9 +3,9 @@ import BasicBodyLayout from "../../layouts/common/BasicBodyLayout"
 
 const QueueHistoryPage = () =>{
     return(
-        <BasicBodyLayout>
+        <div>
             <QueueHistoryComponent/>
-        </BasicBodyLayout>
+        </div>
     )
 }
 

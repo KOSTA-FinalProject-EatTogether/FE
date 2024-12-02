@@ -1,0 +1,77 @@
+.reservationek-container {
+    width: 300px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+  }
+  
+  .reservationek-header, .reservationek-buttons, .reservationek-status, .reservationek-info, .reservationek-request, .reservationek-footer {
+    margin-bottom: 10px;
+  }
+  
+  .reservationek-restaurant-name, .reservationek-reception-date {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .reservationek-buttons button, .reservationek-footer button {
+    width: 48%;
+    padding: 10px;
+    margin-right: 2%;
+    background-color: #ffcccb;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .reservationek-buttons button:last-child, .reservationek-footer button:last-child {
+    margin-right: 0;
+  }
+  
+  .reservationek-status, .reservationek-info-content, .reservationek-request-content {
+    padding: 10px;
+    background-color: #ffe4e1;
+    border: 1px solid #ccc;
+  }
+  
+  .reservationek-info-header, .reservationek-request-header {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  /* 모달 스타일 */
+  .reservationek-modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  }
+  
+  .reservationek-modal-overlay {
+    background-color: rgba(0, 0, 0, 0.75);
+  }
+  
+  .reservationek-modal button {
+    margin: 10px;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .reservationek-modal button:hover {
+    background-color: #0056b3;
+  }
+  

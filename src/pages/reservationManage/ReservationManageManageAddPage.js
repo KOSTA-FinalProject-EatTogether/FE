@@ -4,9 +4,9 @@ import BasicBodyLayout from "../../layouts/common/BasicBodyLayout"
 const ReservationManageManageAddPage = () =>{
 
     return(
-        <BasicBodyLayout>
+        <div>
             <ReservationAddComponent/>
-        </BasicBodyLayout>
+        </div>
     )
 }
 export default ReservationManageManageAddPage

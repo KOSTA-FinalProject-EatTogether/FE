@@ -1,0 +1,38 @@
+.destination-section {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 300px;  /* 좌측 여백 */
+    margin-right: 300px; /* 우측 여백 */
+  }
+  
+  .destinations {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .destination {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: calc(20% - 40px); /* 한 줄에 5개를 표시하기 위해 20% 너비로 설정하고 간격 조정 */
+    text-align: center;
+    margin: 10px; /* 각 항목 간의 간격 */
+  }
+  
+  .destination-icon {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin-bottom: 10px;
+  }
+  
+  .destination p {
+    margin: 0;
+    font-size: 14px;
+  }
+  

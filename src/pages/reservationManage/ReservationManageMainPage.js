@@ -3,9 +3,9 @@ import BasicBodyLayout from "../../layouts/common/BasicBodyLayout"
 
 const ReservationManageMainPage = () =>{
     return(
-        <BasicBodyLayout>
+        <div>
             <ReservationManageMainComponent/>
-        </BasicBodyLayout>
+        </div>
     )
 }
 

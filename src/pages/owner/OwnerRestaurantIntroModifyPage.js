@@ -3,9 +3,9 @@ import BasicBodyLayout from "../../layouts/common/BasicBodyLayout"
 
 const OwnerRestaurantIntroModifyComponent = () =>{
     return(
-        <BasicBodyLayout>
+        <div>
             <OwnerRestaurantIntroEditComponent/>
-        </BasicBodyLayout>
+        </div>
     )
 }
 

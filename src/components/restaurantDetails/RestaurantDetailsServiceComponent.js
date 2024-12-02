@@ -1,77 +1,51 @@
 import React from "react";
-import '../../css/restaurantDetailsCss/RestaurantDetailsService.css';
-import wine from '../../assets/RestaunrantServiceIcon/RestaurantServiceWineIcon.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { 
+ faWineGlass, 
+ faParking, 
+ faWifi, 
+ faCreditCard,
+ faCalendarCheck,
+ faTruck,
+ faWheelchair,
+ faBaby 
+} from '@fortawesome/free-solid-svg-icons';
+
+const serviceData = [
+ { icon: faWineGlass, name: '콜키지 가능' },
+ { icon: faParking, name: '주차 가능' },
+ { icon: faWifi, name: '와이파이' },
+ { icon: faCreditCard, name: '카드 결제' },
+ { icon: faCalendarCheck, name: '예약 가능' },
+ { icon: faTruck, name: '배달 가능' },
+ { icon: faWheelchair, name: '장애인 시설' },
+ { icon: faBaby, name: '유아 시설' }
+];
 
 function RestaurantDetailsService() {
-
-
-    return (
-        <div className="restaurant_details_container">
-            <div className="restaurant_service_layout">
-                <div className="restaurant_details_title"><h2>편의 시설</h2></div>
-                <div className="detail_info">
-                    <div className="amenities_icon">
-                        <span className="amenities_icon"> <img src={wine} width="100"/></span>
-                    </div>
-                    <div className="amenities_name">콜키지 가능</div>
-                </div>
-                <div className="detail_info">
-                    <div className="amenities_icon">
-                        <span className="amenities_icon"> <img src={wine} width="100"/></span>
-                    </div>
-                    <div className="amenities_name">콜키지 가능</div>
-                </div>
-                <div className="detail_info">
-                    <div className="amenities_icon">
-                        <span className="amenities_icon"> <img src={wine} width="100"/></span>
-                    </div>
-                    <div className="amenities_name">콜키지 가능</div>
-                </div>
-                <div className="detail_info">
-                    <div className="amenities_icon">
-                        <span className="amenities_icon"> <img src={wine} width="100"/></span>
-                    </div>
-                    <div className="amenities_name">콜키지 가능</div>
-                </div>
-                <div className="detail_info">
-                    <div className="amenities_icon">
-                        <span className="amenities_icon"> <img src={wine} width="100"/></span>
-                    </div>
-                    <div className="amenities_name">콜키지 가능</div>
-                </div>
-                <div className="detail_info">
-                    <div className="amenities_icon">
-                        <span className="amenities_icon"> <img src={wine} width="100"/></span>
-                    </div>
-                    <div className="amenities_name">콜키지 가능</div>
-                </div>
-                <div className="detail_info">
-                    <div className="amenities_icon">
-                        <span className="amenities_icon"> <img src={wine} width="100"/></span>
-                    </div>
-                    <div className="amenities_name">콜키지 가능</div>
-                </div>
-                <div className="detail_info">
-                    <div className="amenities_icon">
-                        <span className="amenities_icon"> <img src={wine} width="100"/></span>
-                    </div>
-                    <div className="amenities_name">콜키지 가능</div>
-                </div>
-                <div className="detail_info">
-                    <div className="amenities_icon">
-                        <span className="amenities_icon"> <img src={wine} width="100"/></span>
-                    </div>
-                    <div className="amenities_name">콜키지 가능</div>
-                </div>
-                <div className="detail_info">
-                    <div className="amenities_icon">
-                        <span className="amenities_icon"> <img src={wine} width="100"/></span>
-                    </div>
-                    <div className="amenities_name">콜키지 가능</div>
-                </div>
-            </div>
-        </div>
-    )
+ return (
+   <div className="container mt-4">
+     <div className="row">
+       <div className="col-12">
+       <h2 className="mb-4 fs-4">편의 시설</h2>
+         <div className="row row-cols-2 row-cols-md-4 g-4">
+           {serviceData.map((service, index) => (
+             <div key={index} className="col text-center">
+               <div className="d-flex flex-column align-items-center">
+                 <FontAwesomeIcon 
+                   icon={service.icon} 
+                   size="2x" 
+                   className="mb-2"
+                 />
+                 <span className="small">{service.name}</span>
+               </div>
+             </div>
+           ))}
+         </div>
+       </div>
+     </div>
+   </div>
+ );
 }
 
 export default RestaurantDetailsService;

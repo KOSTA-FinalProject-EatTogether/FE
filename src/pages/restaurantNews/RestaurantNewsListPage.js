@@ -3,9 +3,9 @@ import BasicBodyLayout from "../../layouts/common/BasicBodyLayout"
 
 const RestaurantNewsListPage = () => {
     return(
-        <BasicBodyLayout>
+        <div>
             <RestaurantNewsListComponent/>
-        </BasicBodyLayout>
+        </div>
     )
     
 }

@@ -2,9 +2,9 @@ import BasicBodyLayout from "../../layouts/common/BasicBodyLayout"
 
 const ReviewManageMainPage = () => {
     return(
-        <BasicBodyLayout>
+        <div>
             {/* <ReviewManageMainComponent/> */}
-        </BasicBodyLayout>
+        </div>
     )
 }
 export default ReviewManageMainPage

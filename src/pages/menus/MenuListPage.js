@@ -4,10 +4,10 @@ import MenuManagementComponent from "../../components/menu/MenuManagementCompone
 
 const MenuListPage = () => {
     return (
-        <BasicBodyLayout>
+        <div>
             <h2>식당 메뉴 목록 페이지</h2>
             <MenuManagementComponent />
-        </BasicBodyLayout>
+        </div>
     );
 };
 
