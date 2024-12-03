@@ -6,10 +6,11 @@ import reservationRouter from "./reservationRouter";
 import restaurantRouter from "./restaurantRouter";
 import lineUpRouter from "./lineUpRouter";
 import MainPage from "../pages/main/MainPage";
-const {createBrowserRouter} = require("react-router-dom")
 import BasicBodyLayout from "../layouts/common/BasicBodyLayout";
-const Loading = <div className="bg-red-700">Loading..</div>
 import {Outlet} from "react-router-dom";
+
+const Loading = <div className="bg-red-700">Loading..</div>
+const {createBrowserRouter} = require("react-router-dom")
 const BasicOutlet = () => (
     <BasicBodyLayout>
         <Suspense fallback={Loading}>
@@ -23,7 +24,7 @@ const root = createBrowserRouter([
         element: <BasicOutlet />,
         children: [
             {
-                path: "main",
+                path: "",
                 element: <MainPage />
             },{
                 path : "member",

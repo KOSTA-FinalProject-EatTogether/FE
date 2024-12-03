@@ -1,370 +1,407 @@
 import React, { useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-
-// 샘플 대기 데이터
-const SAMPLE_WAITING = [
-  {
-    id: 1,
-    name: "김민수",
-    people: 2,
-    phone: "010-1234-5678",
-    status: "waiting", 
-    timeAdded: "2024-12-01T14:30:00",
-    estimatedTime: "2024-12-01T15:00:00",
-    note: "창가자리 선호",
-    timeSeated: null,
-    timeCancelled: null
-  },
-  {
-    id: 2,
-    name: "이지은",
-    people: 4,
-    phone: "010-2345-6789",
-    status: "seated",
-    timeAdded: "2024-12-01T14:35:00",
-    estimatedTime: "2024-12-01T15:15:00",
-    note: "",
-    timeSeated: "2024-12-01T15:10:00",
-    timeCancelled: null
-  },
-  {
-    id: 3,
-    name: "박준호",
-    people: 3,
-    phone: "010-3456-7890",
-    status: "cancelled",
-    timeAdded: "2024-12-01T13:30:00",
-    estimatedTime: "2024-12-01T14:00:00",
-    note: "아기 의자 필요",
-    timeSeated: null,
-    timeCancelled: "2024-12-01T13:45:00"
-  }
-];
 
 const QueueHistoryComponent = () => {
-  const [waitingList, setWaitingList] = useState(SAMPLE_WAITING);
-  const [view, setView] = useState('current'); // current, history, add
-  const [selectedDate, setSelectedDate] = useState(new Date().toISOString().split('T')[0]);
-  const [newWaiting, setNewWaiting] = useState({
-    name: '',
-    people: 2,
-    phone: '',
-    note: ''
+  const [waitings, setWaitings] = useState([
+    {
+      id: 1,
+      date: '2023-01-15',
+      time: '12:30',
+      entryTime: '13:20',
+      name: '이지은',
+      guests: 2,
+      phone: '010-1111-2222',
+      status: '입장완료',
+      waitingNumber: 1,
+      estimatedTime: '40분',
+      request: '창가자리 희망'
+    },
+    {
+      id: 2,
+      date: '2023-02-14',
+      time: '18:35',
+      entryTime: '19:15',
+      name: '박서준',
+      guests: 4,
+      phone: '010-2222-3333',
+      status: '입장완료',
+      waitingNumber: 3,
+      estimatedTime: '35분',
+      request: '아이 있음'
+    },
+    {
+      id: 3,
+      date: '2023-03-01',
+      time: '12:40',
+      entryTime: '',
+      name: '김민수',
+      guests: 3,
+      phone: '010-3333-4444',
+      status: '취소',
+      waitingNumber: 2,
+      estimatedTime: '50분',
+      request: ''
+    },
+    {
+      id: 4,
+      date: '2023-04-05',
+      time: '19:30',
+      entryTime: '20:10',
+      name: '최다인',
+      guests: 2,
+      phone: '010-4444-5555',
+      status: '입장완료',
+      waitingNumber: 5,
+      estimatedTime: '35분',
+      request: ''
+    },
+    {
+      id: 5,
+      date: '2023-05-05',
+      time: '18:35',
+      entryTime: '',
+      name: '정우성',
+      guests: 5,
+      phone: '010-5555-6666',
+      status: '취소',
+      waitingNumber: 4,
+      estimatedTime: '45분',
+      request: '단체석 필요'
+    },
+    {
+      id: 6,
+      date: '2023-06-15',
+      time: '13:00',
+      entryTime: '13:45',
+      name: '강하늘',
+      guests: 3,
+      phone: '010-6666-7777',
+      status: '입장완료',
+      waitingNumber: 2,
+      estimatedTime: '40분',
+      request: ''
+    },
+    {
+      id: 7,
+      date: '2023-07-25',
+      time: '19:15',
+      entryTime: '20:00',
+      name: '이성경',
+      guests: 4,
+      phone: '010-7777-8888',
+      status: '입장완료',
+      waitingNumber: 6,
+      estimatedTime: '50분',
+      request: '조용한 자리'
+    },
+    {
+      id: 8,
+      date: '2023-08-15',
+      time: '12:20',
+      entryTime: '',
+      name: '한소희',
+      guests: 2,
+      phone: '010-8888-9999',
+      status: '취소',
+      waitingNumber: 1,
+      estimatedTime: '30분',
+      request: ''
+    },
+    {
+      id: 9,
+      date: '2023-09-25',
+      time: '18:45',
+      entryTime: '19:30',
+      name: '박보검',
+      guests: 6,
+      phone: '010-9999-0000',
+      status: '입장완료',
+      waitingNumber: 4,
+      estimatedTime: '45분',
+      request: '생일파티'
+    },
+    {
+      id: 10,
+      date: '2023-10-03',
+      time: '13:15',
+      entryTime: '14:00',
+      name: '김고은',
+      guests: 3,
+      phone: '010-0000-1111',
+      status: '입장완료',
+      waitingNumber: 3,
+      estimatedTime: '40분',
+      request: ''
+    },
+    {
+      id: 11,
+      date: '2023-11-11',
+      time: '19:00',
+      entryTime: '',
+      name: '송중기',
+      guests: 4,
+      phone: '010-1234-5678',
+      status: '취소',
+      waitingNumber: 5,
+      estimatedTime: '55분',
+      request: '창가자리'
+    },
+    {
+      id: 12,
+      date: '2023-12-24',
+      time: '18:30',
+      entryTime: '19:15',
+      name: '전지현',
+      guests: 5,
+      phone: '010-8765-4321',
+      status: '입장완료',
+      waitingNumber: 2,
+      estimatedTime: '40분',
+      request: '크리스마스 이브 파티'
+    },
+    {
+      id: 13,
+      date: '2024-01-01',
+      time: '12:00',
+      entryTime: '12:45',
+      name: '류준열',
+      guests: 4,
+      phone: '010-2468-1357',
+      status: '입장완료',
+      waitingNumber: 1,
+      estimatedTime: '45분',
+      request: '신년 가족모임'
+    },
+    {
+      id: 14,
+      date: '2024-02-14',
+      time: '19:00',
+      entryTime: '',
+      name: '김태리',
+      guests: 2,
+      phone: '010-1357-2468',
+      status: '취소',
+      waitingNumber: 3,
+      estimatedTime: '35분',
+      request: '발렌타인데이'
+    },
+    {
+      id: 15,
+      date: '2024-03-01',
+      time: '13:30',
+      entryTime: '14:10',
+      name: '조정석',
+      guests: 6,
+      phone: '010-9876-5432',
+      status: '입장완료',
+      waitingNumber: 4,
+      estimatedTime: '40분',
+      request: ''
+    }
+  ]);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage] = useState(5);
+  const [filterStatus, setFilterStatus] = useState('all');
+  const [selectedWaiting, setSelectedWaiting] = useState(null);
+  const [sortConfig, setSortConfig] = useState({ key: 'date', direction: 'desc' });
+
+  // 날짜 포맷팅
+  const formatDate = (dateString) => {
+    const options = { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' };
+    return new Date(dateString).toLocaleDateString('ko-KR', options);
+  };
+
+  // 대기시간 계산
+  const calculateWaitingTime = (timeIn, timeOut) => {
+    if (!timeOut) return '-';
+    const [inHour, inMin] = timeIn.split(':');
+    const [outHour, outMin] = timeOut.split(':');
+    const totalMinutes = (outHour - inHour) * 60 + (outMin - inMin);
+    return `${totalMinutes}분`;
+  };
+
+  // 정렬 처리
+  const handleSort = (key) => {
+    setSortConfig({
+      key,
+      direction: sortConfig.key === key && sortConfig.direction === 'asc' ? 'desc' : 'asc'
+    });
+  };
+
+  // 필터링된 데이터
+  const filteredWaitings = waitings.filter(waiting => {
+    const matchesSearch =
+        waiting.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        waiting.phone.includes(searchTerm) ||
+        waiting.date.includes(searchTerm);
+
+    const matchesStatus =
+        filterStatus === 'all' || waiting.status === filterStatus;
+
+    return matchesSearch && matchesStatus;
   });
 
-  const handleAddCustomer = (e) => {
-    e.preventDefault();
-    setView('current');
-  };
+  // 정렬된 데이터
+  const sortedWaitings = [...filteredWaitings].sort((a, b) => {
+    if (sortConfig.key === 'date') {
+      const dateA = new Date(`${a.date}T${a.time}`);
+      const dateB = new Date(`${b.date}T${b.time}`);
+      return sortConfig.direction === 'asc' ? dateA - dateB : dateB - dateA;
+    }
+    return sortConfig.direction === 'asc'
+        ? a[sortConfig.key] > b[sortConfig.key] ? 1 : -1
+        : a[sortConfig.key] < b[sortConfig.key] ? 1 : -1;
+  });
 
-  const handleStatusChange = (id, newStatus) => {
-    setWaitingList(prev => 
-      prev.map(item => {
-        if (item.id === id) {
-          const now = new Date().toISOString();
-          return {
-            ...item,
-            status: newStatus,
-            timeSeated: newStatus === 'seated' ? now : item.timeSeated,
-            timeCancelled: newStatus === 'cancelled' ? now : item.timeCancelled
-          };
-        }
-        return item;
-      })
-    );
-  };
-
-  const renderHeader = () => (
-    <div className="mb-3">
-      <div className="d-flex justify-content-between align-items-center mb-3">
-        <h2 className="h5 mb-0">웨이팅 관리</h2>
-        {view === 'current' && (
-          <button 
-            className="btn btn-primary btn-sm"
-            onClick={() => setView('add')}
-          >
-            웨이팅 추가
-          </button>
-        )}
-      </div>
-      {view !== 'add' && (
-        <div className="btn-group w-100">
-          <button 
-            className={`btn btn-sm ${view === 'current' ? 'btn-primary' : 'btn-outline-primary'}`}
-            onClick={() => setView('current')}
-          >
-            현재 웨이팅
-          </button>
-          <button 
-            className={`btn btn-sm ${view === 'history' ? 'btn-primary' : 'btn-outline-primary'}`}
-            onClick={() => setView('history')}
-          >
-            지난 내역
-          </button>
-        </div>
-      )}
-    </div>
-  );
-
-  const renderStats = () => {
-    const waiting = waitingList.filter(item => item.status === 'waiting').length;
-    const seated = waitingList.filter(item => 
-      item.status === 'seated' && 
-      new Date(item.timeSeated).toDateString() === new Date().toDateString()
-    ).length;
-
-    return (
-      <div className="row g-2 mb-3">
-        <div className="col-6">
-          <div className="border rounded p-2">
-            <div className="small text-muted">대기 중</div>
-            <div className="h5 mb-0">{waiting}팀</div>
-          </div>
-        </div>
-        <div className="col-6">
-          <div className="border rounded p-2">
-            <div className="small text-muted">오늘 착석</div>
-            <div className="h5 mb-0">{seated}팀</div>
-          </div>
-        </div>
-      </div>
-    );
-  };
-
-  const renderHistoryStats = () => {
-    const selectedDateStr = new Date(selectedDate).toDateString();
-    const dailyStats = waitingList.reduce((acc, item) => {
-      const itemDate = new Date(item.timeAdded).toDateString();
-      if (itemDate === selectedDateStr) {
-        acc.total += 1;
-        if (item.status === 'seated') acc.seated += 1;
-        if (item.status === 'cancelled') acc.cancelled += 1;
-      }
-      return acc;
-    }, { total: 0, seated: 0, cancelled: 0 });
-
-    return (
-      <div className="card mb-3">
-        <div className="card-body">
-          <div className="row g-2">
-            <div className="col-4">
-              <div className="text-center">
-                <div className="small text-muted">총 웨이팅</div>
-                <div className="h5 mb-0">{dailyStats.total}팀</div>
-              </div>
-            </div>
-            <div className="col-4">
-              <div className="text-center">
-                <div className="small text-muted">착석</div>
-                <div className="h5 mb-0">{dailyStats.seated}팀</div>
-              </div>
-            </div>
-            <div className="col-4">
-              <div className="text-center">
-                <div className="small text-muted">취소</div>
-                <div className="h5 mb-0">{dailyStats.cancelled}팀</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  };
-
-  const renderHistory = () => (
-    <>
-      <div className="mb-3">
-        <input
-          type="date"
-          className="form-control form-control-sm"
-          value={selectedDate}
-          onChange={(e) => setSelectedDate(e.target.value)}
-        />
-      </div>
-      {renderHistoryStats()}
-      <div className="card">
-        <div className="card-body p-0">
-          <div className="list-group list-group-flush">
-            {waitingList
-              .filter(item => 
-                new Date(item.timeAdded).toDateString() === new Date(selectedDate).toDateString() &&
-                (item.status === 'seated' || item.status === 'cancelled')
-              )
-              .map((item) => (
-                <div key={item.id} className="list-group-item">
-                  <div className="d-flex justify-content-between align-items-start">
-                    <div>
-                      <div className="mb-1">
-                        <span className={`badge ${
-                          item.status === 'seated' ? 'bg-success' : 'bg-danger'
-                        } me-2`}>
-                          {item.status === 'seated' ? '착석' : '취소'}
-                        </span>
-                        <span className="fw-bold">{item.name}</span>
-                        <span className="ms-2 small text-muted">{item.people}명</span>
-                      </div>
-                      <div className="small text-muted">
-                        대기시간: {Math.round((
-                          new Date(item.status === 'seated' ? item.timeSeated : item.timeCancelled) - 
-                          new Date(item.timeAdded)
-                        ) / 1000 / 60)}분
-                      </div>
-                    </div>
-                    <div className="text-end small text-muted">
-                      <div>
-                        등록: {new Date(item.timeAdded).toLocaleTimeString([], { 
-                          hour: '2-digit', 
-                          minute: '2-digit' 
-                        })}
-                      </div>
-                      <div>
-                        {item.status === 'seated' ? '착석' : '취소'}: {
-                          new Date(item.status === 'seated' ? item.timeSeated : item.timeCancelled)
-                            .toLocaleTimeString([], { 
-                              hour: '2-digit', 
-                              minute: '2-digit' 
-                            })
-                        }
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-          </div>
-        </div>
-      </div>
-    </>
-  );
-
-  // 기존 renderWaitingList, renderAddForm 함수는 동일하게 유지
-
-  const renderCurrentWaiting = () => (
-    <div className="card">
-      <div className="card-body p-0">
-        <div className="list-group list-group-flush">
-          {waitingList
-            .filter(item => item.status === 'waiting')
-            .map((item, index) => (
-              <div key={item.id} className="list-group-item">
-                <div className="d-flex justify-content-between align-items-start mb-1">
-                  <div>
-                    <span className="badge bg-secondary me-2">대기 {index + 1}</span>
-                    <span className="fw-bold">{item.name}</span>
-                    <span className="ms-2 small text-muted">{item.people}명</span>
-                  </div>
-                  <small className="text-muted">
-                    {new Date(item.timeAdded).toLocaleTimeString([], { 
-                      hour: '2-digit', 
-                      minute: '2-digit' 
-                    })}
-                  </small>
-                </div>
-                {item.note && (
-                  <div className="small text-muted mb-2">{item.note}</div>
-                )}
-                <div className="btn-group btn-group-sm">
-                  <button 
-                    className="btn btn-success"
-                    onClick={() => handleStatusChange(item.id, 'seated')}
-                  >
-                    착석
-                  </button>
-                  <button 
-                    className="btn btn-outline-primary"
-                    onClick={() => alert('문자 전송')}
-                  >
-                    호출
-                  </button>
-                  <button 
-                    className="btn btn-outline-danger"
-                    onClick={() => handleStatusChange(item.id, 'cancelled')}
-                  >
-                    취소
-                  </button>
-                </div>
-              </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-
-  const renderAddForm = () => (
-    <div className="card">
-      <div className="card-body">
-        <form onSubmit={handleAddCustomer}>
-          <div className="mb-3">
-            <label className="form-label small">고객명</label>
-            <input 
-              type="text"
-              className="form-control form-control-sm"
-              value={newWaiting.name}
-              onChange={e => setNewWaiting({...newWaiting, name: e.target.value})}
-              required
-            />
-          </div>
-          
-          <div className="mb-3">
-            <label className="form-label small">인원</label>
-            <select 
-              className="form-select form-select-sm"
-              value={newWaiting.people}
-              onChange={e => setNewWaiting({...newWaiting, people: parseInt(e.target.value)})}
-            >
-              {[1,2,3,4,5,6,7,8].map(num => (
-                <option key={num} value={num}>{num}명</option>
-              ))}
-            </select>
-          </div>
-
-          <div className="mb-3">
-            <label className="form-label small">연락처</label>
-            <input 
-              type="tel"
-              className="form-control form-control-sm"
-              value={newWaiting.phone}
-              onChange={e => setNewWaiting({...newWaiting, phone: e.target.value})}
-              required
-            />
-          </div>
-
-          <div className="mb-3">
-            <label className="form-label small">메모</label>
-            <textarea 
-              className="form-control form-control-sm"
-              rows="2"
-              value={newWaiting.note}
-              onChange={e => setNewWaiting({...newWaiting, note: e.target.value})}
-            />
-          </div>
-
-          <div className="d-grid gap-2">
-            <button type="submit" className="btn btn-primary btn-sm">등록</button>
-            <button 
-              type="button" 
-              className="btn btn-outline-secondary btn-sm"
-              onClick={() => setView('current')}
-            >
-              취소
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
-  );
+  // 페이지네이션
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = sortedWaitings.slice(indexOfFirstItem, indexOfLastItem);
+  const totalPages = Math.ceil(sortedWaitings.length / itemsPerPage);
 
   return (
-    <>
-      {renderHeader()}
-      {view === 'current' && (
-        <>
-          {renderStats()}
-          {renderCurrentWaiting()}
-        </>
-      )}
-      {view === 'history' && renderHistory()}
-      {view === 'add' && renderAddForm()}
-    </>
+      <div className="container mt-4">
+        {/* 검색 및 필터 섹션 */}
+        <div className="row mb-4">
+          <div className="col-md-6">
+            <input
+                type="text"
+                className="form-control"
+                placeholder="이름, 전화번호, 날짜로 검색"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+            />
+          </div>
+          <div className="col-md-6">
+            <select
+                className="form-select"
+                value={filterStatus}
+                onChange={(e) => setFilterStatus(e.target.value)}
+            >
+              <option value="all">모든 상태</option>
+              <option value="입장완료">입장완료</option>
+              <option value="취소">취소</option>
+            </select>
+          </div>
+        </div>
+
+        {/* 웨이팅 테이블 */}
+        <div className="table-responsive">
+          <table className="table table-hover">
+            <thead>
+            <tr>
+              <th onClick={() => handleSort('date')} style={{cursor: 'pointer'}}>
+                날짜 {sortConfig.key === 'date' && (sortConfig.direction === 'asc' ? '↑' : '↓')}
+              </th>
+              <th>웨이팅 번호</th>
+              <th onClick={() => handleSort('name')} style={{cursor: 'pointer'}}>
+                고객명 {sortConfig.key === 'name' && (sortConfig.direction === 'asc' ? '↑' : '↓')}
+              </th>
+              <th>인원</th>
+              <th>접수시간</th>
+              <th>입장시간</th>
+              <th>대기시간</th>
+              <th>상태</th>
+              <th>액션</th>
+            </tr>
+            </thead>
+            <tbody>
+            {currentItems.map((waiting) => (
+                <tr key={waiting.id}>
+                  <td>{formatDate(waiting.date)}</td>
+                  <td>{waiting.waitingNumber}번</td>
+                  <td>{waiting.name}</td>
+                  <td>{waiting.guests}명</td>
+                  <td>{waiting.time}</td>
+                  <td>{waiting.entryTime || '-'}</td>
+                  <td>{calculateWaitingTime(waiting.time, waiting.entryTime)}</td>
+                  <td>
+                  <span className={`badge bg-${waiting.status === '입장완료' ? 'success' : 'danger'}`}>
+                    {waiting.status}
+                  </span>
+                  </td>
+                  <td>
+                    <button
+                        className="btn btn-sm btn-primary"
+                        data-bs-toggle="modal"
+                        data-bs-target="#waitingModal"
+                        onClick={() => setSelectedWaiting(waiting)}
+                    >
+                      상세보기
+                    </button>
+                  </td>
+                </tr>
+            ))}
+            </tbody>
+          </table>
+        </div>
+
+        {/* 페이지네이션 */}
+        <nav>
+          <ul className="pagination justify-content-center">
+            <li className={`page-item ${currentPage === 1 ? 'disabled' : ''}`}>
+              <button
+                  className="page-link"
+                  onClick={() => setCurrentPage(currentPage - 1)}
+                  disabled={currentPage === 1}
+              >
+                이전
+              </button>
+            </li>
+            {[...Array(totalPages)].map((_, i) => (
+                <li key={i} className={`page-item ${currentPage === i + 1 ? 'active' : ''}`}>
+                  <button
+                      className="page-link"
+                      onClick={() => setCurrentPage(i + 1)}
+                  >
+                    {i + 1}
+                  </button>
+                </li>
+            ))}
+            <li className={`page-item ${currentPage === totalPages ? 'disabled' : ''}`}>
+              <button
+                  className="page-link"
+                  onClick={() => setCurrentPage(currentPage + 1)}
+                  disabled={currentPage === totalPages}
+              >
+                다음
+              </button>
+            </li>
+          </ul>
+        </nav>
+
+        {/* 상세 정보 모달 */}
+        <div className="modal fade" id="waitingModal" tabIndex="-1">
+          <div className="modal-dialog">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title">웨이팅 상세 정보</h5>
+                <button type="button" className="btn-close" data-bs-dismiss="modal"></button>
+              </div>
+              <div className="modal-body">
+                {selectedWaiting && (
+                    <div>
+                      <p><strong>날짜:</strong> {formatDate(selectedWaiting.date)}</p>
+                      <p><strong>웨이팅 번호:</strong> {selectedWaiting.waitingNumber}번</p>
+                      <p><strong>고객명:</strong> {selectedWaiting.name}</p>
+                      <p><strong>인원:</strong> {selectedWaiting.guests}명</p>
+                      <p><strong>연락처:</strong> {selectedWaiting.phone}</p>
+                      <p><strong>접수시간:</strong> {selectedWaiting.time}</p>
+                      <p><strong>입장시간:</strong> {selectedWaiting.entryTime || '-'}</p>
+                      <p><strong>예상 대기시간:</strong> {selectedWaiting.estimatedTime}</p>
+                      <p><strong>실제 대기시간:</strong> {calculateWaitingTime(selectedWaiting.time, selectedWaiting.entryTime)}</p>
+                      <p><strong>상태:</strong> {selectedWaiting.status}</p>
+                      <p><strong>요청사항:</strong> {selectedWaiting.request || '없음'}</p>
+                    </div>
+                )}
+              </div>
+              <div className="modal-footer">
+                <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
   );
 };
 

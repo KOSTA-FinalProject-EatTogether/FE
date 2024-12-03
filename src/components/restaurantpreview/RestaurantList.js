@@ -4,12 +4,22 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Map from './Map';
 import KakaoMapComponent from "../../components/map/KakaoMapComponent";
 import Filter from './Filter';
+import {useNavigate} from "react-router-dom";
 
 const RestaurantList = () => {
   const [restaurants, setRestaurants] = useState([]);
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
   const observer = useRef();
+
+  const navigate = useNavigate()
+
+  const moveToRestaurantDetail = () => {
+    navigate({
+      pathname: `../detail`
+    })
+  }
+
 
   const dummyData = [
     {
@@ -99,7 +109,8 @@ const RestaurantList = () => {
           <KakaoMapComponent/>
           <Filter/>
         </div>
-        <div style={{height: 'calc(100vh - 200px)', overflowY: 'auto', overflowX: 'hidden',}}>
+        <div style={{height: 'calc(100vh - 200px)', overflowY: 'auto', overflowX: 'hidden',cursor: 'pointer'}} onClick={moveToRestaurantDetail}
+        >
           {restaurants.map((restaurant, index) => (
               <Restaurant
                   key={restaurant.id}

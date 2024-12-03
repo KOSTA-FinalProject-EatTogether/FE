@@ -6,13 +6,13 @@ import BasicBodyLayout from "../../layouts/common/BasicBodyLayout";
 
 const RestaurantPreviewPage = () => {
   return (
-      <div>
+      <>
           {/*<div className="restaurant-preview">*/}
           {/*    <KakaoMapComponent/>*/}
           {/*    <Filter/>*/}
               <RestaurantList/>
           {/*</div>*/}
-      </div>
+      </>
 
 
   );

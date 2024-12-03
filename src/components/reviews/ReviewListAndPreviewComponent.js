@@ -25,7 +25,7 @@ const SAMPLE_REVIEWS = [
     }
   ];
   
-  const ReviewForm = ({ review, onChange, onImageChange }) => {
+ export const ReviewForm = ({ review, onChange, onImageChange }) => {
     return (
       <div className="card">
         <div className="card-header">

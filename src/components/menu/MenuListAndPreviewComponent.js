@@ -57,9 +57,6 @@ export const MenuListComponent = () => {
                             <span className="badge bg-primary">
                                 {item.price.toLocaleString()}원
                             </span>
-                            <div className="mt-2">
-                                <button className="btn btn-outline-primary">수정</button>
-                            </div>
                         </div>
                         <div className="d-flex align-items-center justify-content-center">
                             <img 

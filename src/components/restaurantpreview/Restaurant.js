@@ -2,6 +2,7 @@ import React, { forwardRef } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
+import {useNavigate} from "react-router-dom";
 
 const Restaurant = forwardRef(({ restaurant }, ref) => {
     const navigate = useNavigate();

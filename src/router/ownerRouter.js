@@ -13,7 +13,7 @@ const BusinessHourModify = lazy(() => import("../pages/businesshours/BusinessHou
 
 const ReservationMain = lazy(() => import("../pages/reservationManage/ReservationManageMainPage"))
 const ReservationAdd = lazy(() => import("../pages/reservationManage/ReservationManageManageAddPage"))
-const ReserationTimeSetting =lazy(() => import("../pages/reservationManage/ReservationManageTimeSettingPage"))
+const ReservationTimeSetting =lazy(() => import("../pages/reservationManage/ReservationManageTimeSettingPage"))
 
 const QueueMain = lazy(() => import("../pages/queue/QueueMainPage"))
 const QueueHistory = lazy(() => import("../pages/queue/QueueHistoryPage"))
@@ -79,7 +79,7 @@ const ownerRouter = () => {
             path: "reservationtimesetting",
             element: (
                 <Suspense fallback={Loading}>
-                    <ReserationTimeSetting/>
+                    <ReservationTimeSetting/>
                 </Suspense>
             ),
         },{

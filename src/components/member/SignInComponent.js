@@ -14,9 +14,9 @@ const SignInComponent = () => {
     return (
         <div className="container py-5">
             <div className="row justify-content-center">
-                <div className="col-12 col-md-8 col-lg-6">
+                <div className="col-12">
                     <div className="card border-0 shadow-sm" style={{ borderRadius: '20px', backgroundColor: '#fff' }}>
-                        <div className="card-body p-4">
+                        <div className="card-body">
                             <h4 className="text-center mb-4" style={{ color: '#ff6f61', fontWeight: '600' }}>로그인</h4>
                             <form>
                                 <div className="mb-4">

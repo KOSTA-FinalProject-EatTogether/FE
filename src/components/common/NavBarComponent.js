@@ -1,11 +1,16 @@
 import React from 'react';
 import '../../css/NavBar.css';
-
+import {useNavigate} from "react-router-dom";
 const NavBarComponent = () => {
+  const navigate = useNavigate();
+  const handleGoToMapSearch = () => {
+    navigate('/restaurant/preview');
+  };
+
   return (
     <nav className="bottom-nav">
       <ul>
-        <li><a href="#">지도검색</a></li>
+        <li><a href="/restaurant/preview">지도검색</a></li>
         <li><a href="#">추천식당</a></li>
         <li><a href="#">테마식당</a></li>
         <li><a href="#">지역별식당</a></li>
