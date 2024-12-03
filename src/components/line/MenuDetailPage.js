@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import '../../css/line/MenuDetailPage.css';
-import menu3 from '../../assets/menu3.jpg'; // 임의의 메뉴 사진
-
+import menu3 from '../../assets/menu/menu3.jpg'; // 임의의 메뉴 사진
+import {useNavigate} from "react-router-dom";
 const MenuDetailPage = () => {
   const [quantity, setQuantity] = useState(1);
   const pricePerItem = 14000;
   const totalPrice = pricePerItem * quantity;
-
+  const navigate = useNavigate()
   const handleMinus = () => {
     setQuantity(prevQuantity => Math.max(1, prevQuantity - 1));
   };
@@ -15,7 +15,12 @@ const MenuDetailPage = () => {
     setQuantity(prevQuantity => prevQuantity + 1);
   };
 
-  return (
+    const handleAddToCart = () => {
+        navigate('/queue/menuNextSelect'); // 페이지 이동
+    };
+
+
+    return (
     <div className="detail-menu-container">
       <div className="detail-menu-photo">
         <img src={menu3} alt="메뉴 사진" />
@@ -37,7 +42,7 @@ const MenuDetailPage = () => {
             <button className="detail-count-button" onClick={handlePlus}>+</button>
           </div>
         </div>
-        <button className="detail-add-to-cart-button">장바구니에 담기</button>
+        <button className="detail-add-to-cart-button" onClick={handleAddToCart}>장바구니에 담기</button>
       </div>
     </div>
   );

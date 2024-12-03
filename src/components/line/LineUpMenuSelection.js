@@ -3,11 +3,17 @@ import '../../css/line/LineUpMenuSelection.css';
 import simba from '../../assets/simba_icon.png';
 // import menu1 from '../../assets/menu1.jpg';  // 이미지 파일 임포트
 // import menu2 from '../../assets/menu2.jpg';  // 이미지 파일 임포트
-
+import {useNavigate} from "react-router-dom";
 const LineUpMenuSelection = () => {
     const [activeTab, setActiveTab] = useState('식사');
     const [quantity, setQuantity] = useState(1);
     const totalPrice = 10000; // 예시 가격
+
+    const navigate = useNavigate()
+
+    const handleMenuClick = (id) => {
+        navigate(`/queue/menuDetails`); // MenuDetailPage로 이동
+    };
 
     const handleMinus = () => setQuantity(prev => Math.max(1, prev - 1));
     const handlePlus = () => setQuantity(prev => prev + 1);
@@ -41,6 +47,7 @@ const LineUpMenuSelection = () => {
                                 transition: 'all 0.2s'
                             }}
                             onClick={() => setActiveTab(tab)}
+
                         >
                             {tab}
                         </button>
@@ -52,7 +59,9 @@ const LineUpMenuSelection = () => {
                         <button className="menu-item d-flex align-items-center w-100 mb-3 border-0 bg-light p-3"
                                 key={item.id}
                                 style={{borderRadius: '12px'}}
+                                onClick={() => handleMenuClick(item.id)}
                         >
+
                             <div className="menu-photophoto me-3" style={{width: '80px', height: '80px'}}>
                                 <img src={item.imageUrl} alt={item.name} className="w-100 h-100 object-fit-cover rounded" />
                             </div>

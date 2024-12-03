@@ -1,4 +1,4 @@
-import KakaoMapComponent from "../../components/map/KakaoMapComponent";
+import KakaoMap from "../../components/common/map/KakaoMap";
 import { MenuPreview } from "../../components/menu/MenuListAndPreviewComponent";
 import BasicBodyLayout from "../../layouts/common/BasicBodyLayout";
 import OwnerRestaurantIntroPage from "./OwnerRestaurantIntroPage";
@@ -10,7 +10,7 @@ const OwnerMainPage = () => {
             <h1>식당 관리 페이지 메인</h1>
             <div>
                 <h2>식당 지도</h2>
-                <KakaoMapComponent/>
+                <KakaoMap/>
             </div>
             <div>
                 <h2>식당 소개</h2>

@@ -26,14 +26,14 @@ const UserPastPage = () => {
                     onClick={() => handleSectionChange('reservation')}
                     style={{cursor: 'pointer'}}
                 >
-                    예약 보기
+                    지난 예약 내역
                 </li>
                 <li
                     className={getSectionClassName('queue')}
                     onClick={() => handleSectionChange('queue')}
                     style={{cursor: 'pointer'}}
                 >
-                    지난 예약 내역
+                    지난 줄서기 내역
                 </li>
             </ul>
 

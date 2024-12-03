@@ -1,8 +1,8 @@
-import LineUpRequest from "../../components/line/LineUpRequest";
+import LineUpComplete from "../../components/line/LineUpComplete";
 const LineUpRequestPage =() =>{
     return(
         <div>
-            <LineUpRequest/>
+            <LineUpComplete/>
         </div>
     )
 }

@@ -1,9 +1,9 @@
 import {Suspense, lazy} from "react";
 const Loading = <div>Loading..</div>
 
-const ReservationMain = lazy(()=>import("../pages/reservations/ReservationMainPage"))
-const ReservationConfirm = lazy(()=>import("../pages/reservations/ReservationConfirmPage"))
-const ReservationPayment = lazy(()=>import("../pages/reservations/ReservationPaymentPage"))
+const ReservationMain = lazy(()=>import("../pages/restaurant/reservations/ReservationMainPage"))
+const ReservationConfirm = lazy(()=>import("../pages/restaurant/reservations/ReservationConfirmPage"))
+const ReservationPayment = lazy(()=>import("../pages/restaurant/reservations/ReservationPaymentPage"))
 
 const reservationRouter = () => {
     return [

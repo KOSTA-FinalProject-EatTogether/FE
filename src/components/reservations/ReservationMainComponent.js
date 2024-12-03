@@ -5,6 +5,7 @@ import Calendar from '../common/Calendar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useEffect } from 'react';
 import ReservationConfirmDialog from './ReservationConfirmDialog';
+import {useNavigate} from "react-router-dom";
 
 const ReservationMainComponent = () => {
     const [showModal, setShowModal] = useState(false);
@@ -39,8 +40,12 @@ const ReservationMainComponent = () => {
             time: time
         }));
     };
- 
+
+    const navigate = useNavigate();
+
+        ;
     const handleSubmit = () => {
+        navigate('../payment');
         console.log('Reservation Data:', reservationData);
     };
  

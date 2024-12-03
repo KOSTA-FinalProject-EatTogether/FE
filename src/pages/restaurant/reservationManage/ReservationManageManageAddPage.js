@@ -1,0 +1,12 @@
+import ReservationManageAddComponent from "../../../components/owner/reservationManage/ReservationManageAddComponent";
+import BasicBodyLayout from "../../../layouts/common/BasicBodyLayout"
+
+const ReservationManageManageAddPage = () =>{
+
+    return(
+        <div>
+            <ReservationAddComponent/>
+        </div>
+    )
+}
+export default ReservationManageManageAddPage

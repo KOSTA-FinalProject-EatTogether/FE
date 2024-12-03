@@ -2,12 +2,14 @@ import {Suspense, lazy} from "react";
 const Loading = <div>Loading..</div>
 
 const LineReservation = lazy(()=>import("../pages/line/LineReservationPage"))
-const LineUpRequest = lazy(() => import("../components/line/LineUpRequest"))
+const LineUpComplete = lazy(() => import("../components/line/LineUpComplete"))
 const LineUpMenuSelection = lazy(() => import("../pages/line/LineUpMenuSelectionPagew"))
 const LineUpMenunextSelection = lazy(() => import("../components/line/LineUpMenunextSelection"))
 const LineUpPayment = lazy(() => import("../components/line/LineUpPayment"))
 const LineUpPaymentComplete = lazy(() => import("../components/line/LineUpPaymentComplete"))
-const LineUpReservation = lazy(() => import("../pages/member/SignInPage"))
+const LineUpDetails = lazy(() => import("../components/line/LineUpDetails"))
+const MenuDetailPage  = lazy(() => import("../components/line/MenuDetailPage"))
+import {useNavigate} from "react-router-dom";
 
 const lineUpRouter = () => {
     return [
@@ -15,8 +17,8 @@ const lineUpRouter = () => {
             path: "lineReservation",
             element : <Suspense fallba ck={Loading}><LineReservation/></Suspense>
         },{
-            path: "request",
-            element:<Suspense fallback={Loading}><LineUpRequest/></Suspense>
+            path: "LineUpComplete",
+            element:<Suspense fallback={Loading}><LineUpComplete/></Suspense>
         },{
             path: "menuSelect",
             element:<Suspense fallback={Loading}><LineUpMenuSelection/></Suspense>
@@ -30,8 +32,11 @@ const lineUpRouter = () => {
             path: "paymentComplete",
             element:<Suspense fallback={Loading}><LineUpPaymentComplete/></Suspense>
         },{
-            path: "lineUpReservation",
-            element:<Suspense fallback={Loading}><LineUpReservation/></Suspense>
+            path: "queuedetails",
+            element:<Suspense fallback={Loading}><LineUpDetails/></Suspense>
+        },{
+            path: "menuDetails",
+            element:<Suspense fallback={Loading}><MenuDetailPage/></Suspense>
         }
     ]
 }

@@ -1,5 +1,12 @@
-import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import React, {useEffect, useState} from 'react';
+
+// 사용자 권한 타입
+const USER_ROLES = {
+    USER: 'USER',
+    OWNER: 'OWNER',
+    ADMIN: 'ADMIN'
+};
 
 // ReviewData.js - 데이터 공유를 위한 파일
 const SAMPLE_REVIEWS = [
@@ -133,68 +140,161 @@ const SAMPLE_REVIEWS = [
         </div>
     );
  };
- 
-export const ReviewList = () => {
-    return (
-      <div className="card">
-        <div className="card-header d-flex justify-content-between align-items-center">
-          <h5 className="mb-0">방문자 리뷰</h5>
-          <span className="badge bg-primary">{SAMPLE_REVIEWS.length}개</span>
-        </div>
-        <div className="card-body p-0">
-          <div className="list-group list-group-flush">
-            {SAMPLE_REVIEWS.map(review => (
-              <div key={review.id} className="list-group-item p-3">
-                {/* 리뷰 헤더 */}
-                <div className="d-flex justify-content-between mb-2">
-                  <div>
-                    <span className="fw-bold">{review.userName}</span>
-                    <span className="mx-2 text-muted">|</span>
-                    <span className="text-warning">{'★'.repeat(review.rating)}</span>
-                    <span className="text-muted">{'★'.repeat(5-review.rating)}</span>
-                  </div>
-                  <small className="text-muted">
-                    {new Date(review.date).toLocaleDateString()}
-                  </small>
-                </div>
-  
-                {/* 리뷰 내용 */}
-                <p className="mb-2">{review.content}</p>
-  
-                {/* 리뷰 이미지 */}
-                {review.images.length > 0 && (
-                  <div className="d-flex gap-2 mb-2">
-                    {review.images.map((image, index) => (
-                      <div 
-                        key={index}
-                        className="bg-light"
-                        style={{
-                          width: '60px',
-                          height: '60px',
-                          borderRadius: '4px'
-                        }}
-                      />
-                    ))}
-                  </div>
-                )}
-  
-                {/* 사장님 답변 */}
-                {review.reply && (
-                  <div className="bg-light rounded p-3 mt-2">
-                    <div className="d-flex align-items-center mb-2">
-                      <span className="badge bg-primary me-2">사장님</span>
-                      <small className="text-muted">답변</small>
-                    </div>
-                    <p className="mb-0 small">{review.reply}</p>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    );
-  };
-  
 
-  export default ReviewList;
+
+
+export const ReviewList = ({onEditReview, onReportReview, onDeleteReview }) => {
+    const [userRole, setUserRole] = useState(null);
+    const [editingReview, setEditingReview] = useState(null);
+    const [editContent, setEditContent] = useState('');
+
+    // localStorage에서 로그인 정보 가져오기
+     useEffect(() => {
+        const loginInfo = localStorage.getItem('loginInfo');
+        if (loginInfo) {
+            const parsedInfo = JSON.parse(loginInfo);
+            setUserRole(parsedInfo.role);
+        }
+    }, []);
+
+    const handleEditClick = (review) => {
+        setEditingReview(review.id);
+        setEditContent(review.content);
+    };
+
+    const handleSaveEdit = async (reviewId) => {
+        await onEditReview(reviewId, editContent);
+        setEditingReview(null);
+        setEditContent('');
+    };
+
+    const handleReport = async (reviewId) => {
+        if (window.confirm('이 리뷰를 신고하시겠습니까?\n부적절한 내용이 포함된 리뷰는 검토 후 삭제될 수 있습니다.')) {
+            await onReportReview(reviewId);
+        }
+    };
+
+    const handleDelete = async (reviewId) => {
+        if (window.confirm('이 리뷰를 삭제하시겠습니까?\n삭제된 리뷰는 복구할 수 없습니다.')) {
+            await onDeleteReview(reviewId);
+        }
+    };
+
+    return (
+        <div className="card">
+            <div className="card-header d-flex justify-content-between align-items-center">
+                <h5 className="mb-0">방문자 리뷰</h5>
+                <span className="badge bg-primary">{SAMPLE_REVIEWS.length}개</span>
+            </div>
+
+            <div className="card-body p-0">
+                <div className="list-group list-group-flush">
+                    {SAMPLE_REVIEWS.map(review => (
+                        <div key={review.id} className="list-group-item p-3">
+                            {/* 리뷰 헤더 */}
+                            <div className="d-flex justify-content-between mb-2">
+                                <div>
+                                    <span className="fw-bold">{review.userName}</span>
+                                    <span className="mx-2 text-muted">|</span>
+                                    <span className="text-warning">{'★'.repeat(review.rating)}</span>
+                                    <span className="text-muted">{'★'.repeat(5-review.rating)}</span>
+                                </div>
+                                <div className="d-flex align-items-center">
+                                    <small className="text-muted me-3">
+                                        {new Date(review.date).toLocaleDateString()}
+                                    </small>
+
+                                    {/* 권한별 액션 버튼 */}
+                                    {userRole === USER_ROLES.USER && review.isOwner && (
+                                        <button
+                                            className="btn btn-outline-primary btn-sm ms-2"
+                                            onClick={() => handleEditClick(review)}
+                                        >
+                                            수정
+                                        </button>
+                                    )}
+
+                                    {userRole === USER_ROLES.OWNER && (
+                                        <button
+                                            className="btn btn-outline-warning btn-sm ms-2"
+                                            onClick={() => handleReport(review.id)}
+                                        >
+                                            신고
+                                        </button>
+                                    )}
+
+                                    {userRole === USER_ROLES.ADMIN && (
+                                        <button
+                                            className="btn btn-outline-danger btn-sm ms-2"
+                                            onClick={() => handleDelete(review.id)}
+                                        >
+                                            삭제
+                                        </button>
+                                    )}
+                                </div>
+                            </div>
+
+                            {/* 리뷰 내용 */}
+                            {editingReview === review.id ? (
+                                <div className="mt-3">
+                  <textarea
+                      className="form-control mb-2"
+                      value={editContent}
+                      onChange={(e) => setEditContent(e.target.value)}
+                      rows="3"
+                  />
+                                    <div className="d-flex justify-content-end gap-2">
+                                        <button
+                                            className="btn btn-outline-secondary btn-sm"
+                                            onClick={() => setEditingReview(null)}
+                                        >
+                                            취소
+                                        </button>
+                                        <button
+                                            className="btn btn-primary btn-sm"
+                                            onClick={() => handleSaveEdit(review.id)}
+                                        >
+                                            저장
+                                        </button>
+                                    </div>
+                                </div>
+                            ) : (
+                                <p className="mb-2">{review.content}</p>
+                            )}
+
+                            {/* 리뷰 이미지 */}
+                            {review.images.length > 0 && (
+                                <div className="d-flex gap-2 mb-2">
+                                    {review.images.map((image, index) => (
+                                        <div
+                                            key={index}
+                                            className="bg-light"
+                                            style={{
+                                                width: '60px',
+                                                height: '60px',
+                                                borderRadius: '4px'
+                                            }}
+                                        />
+                                    ))}
+                                </div>
+                            )}
+
+                            {/* 사장님 답변 */}
+                            {review.reply && (
+                                <div className="bg-light rounded p-3 mt-2">
+                                    <div className="d-flex align-items-center mb-2">
+                                        <span className="badge bg-primary me-2">사장님</span>
+                                        <small className="text-muted">답변</small>
+                                    </div>
+                                    <p className="mb-0 small">{review.reply}</p>
+                                </div>
+                            )}
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default ReviewList;

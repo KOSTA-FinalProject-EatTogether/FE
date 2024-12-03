@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import '../../css/line/LineUpMenunextSelection.css';
 import simba from '../../assets/simba_icon.png';
+import {useNavigate} from "react-router-dom";
 // import menu1 from '../../assets/menu/menu1.jpg';  // 이미지 파일 임포트
 // import menu2 from '../../assets/menu/menu2.jpg';  // 이미지 파일 임포트
 
@@ -22,8 +23,13 @@ const LineUpMenunextSelection = () => {
   const handlePlus = () => {
     setQuantity(prevQuantity => prevQuantity + 1);
   };
+    const navigate = useNavigate()
+    const handlePayment = () => {
+        navigate('/queue/payment'); // 페이지 이동
+    };
 
-  return (
+
+    return (
     <div className="next-menu-container">
       <h1 className="next-restaurant-name">식당이름</h1>
       <div className="next-menu-tabs">
@@ -57,7 +63,7 @@ const LineUpMenunextSelection = () => {
             <button className="next-count-button" onClick={handlePlus}>+</button>
           </div>
         </div>
-        <button className="next-add-to-cart-button">결제하기</button>
+        <button className="next-add-to-cart-button" onClick={handlePayment}>결제하기</button>
       </div>
     </div>
   );

@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import {useNavigate} from "react-router-dom";
 const LineReservation = () => {
     const [adultCount, setAdultCount] = useState(1);
     const [infantCount, setInfantCount] = useState(0);
+    const navigate = useNavigate()
+
+     const moveToNextStep = () => {
+        navigate('/queue/menuSelect');
+    };
 
     const CountButton = ({ onClick, children }) => (
         <button
@@ -41,6 +46,16 @@ const LineReservation = () => {
             maxWidth: '500px',
             margin: '20px auto'
         }}>
+            <div className="mb-4 text-center">
+                <h3 style={{color: '#333', fontWeight: '600'}}>맛있는 순대국</h3>
+                <p className="mb-2" style={{color: '#666'}}>
+                    예상 대기시간: 30분
+                </p>
+                <p className="mb-4" style={{color: '#666', fontSize: '0.9em'}}>
+                    영업시간: 11:00 - 21:00
+                </p>
+            </div>
+
             <h2 className="text-center mb-5" style={{color: '#ff6f61', fontWeight: '600'}}>
                 방문 인원을 선택하세요
             </h2>
@@ -110,8 +125,10 @@ const LineReservation = () => {
                         e.target.style.backgroundColor = '#ff6f61';
                         e.target.style.transform = 'translateY(0)';
                     }}
+                    onClick={moveToNextStep}
+
                 >
-                    줄서기완료
+                    줄서기
                 </button>
             </div>
         </div>

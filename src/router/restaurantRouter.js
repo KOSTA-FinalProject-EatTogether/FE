@@ -1,9 +1,9 @@
 import {Suspense, lazy} from "react";
 const Loading = <div>Loading..</div>
 
-const RestaurantDetail = lazy(()=>import("../pages/restaurantDetails/RestaurantDetailsPage"))
-const RestaurantModify = lazy(()=>import("../pages/restaurantDetails/RestaurantModifyPage"))
-const RestaurantPreviewPage = lazy(()=>import("../pages/restaurantPreview/RestaurantPreviewPage"))
+const RestaurantDetail = lazy(()=>import("../pages/restaurant/restaurantDetails/RestaurantDetailsPage"))
+const RestaurantModify = lazy(()=>import("../pages/restaurant/restaurantDetails/RestaurantModifyPage"))
+const RestaurantPreviewPage = lazy(()=>import("../pages/restaurant/restaurantPreview/RestaurantPreviewPage"))
 const restaurantRouter = () =>{
     return [
         {
