@@ -9,7 +9,6 @@ const LineUpPayment = lazy(() => import("../components/line/LineUpPayment"))
 const LineUpPaymentComplete = lazy(() => import("../components/line/LineUpPaymentComplete"))
 const LineUpDetails = lazy(() => import("../components/line/LineUpDetails"))
 const MenuDetailPage  = lazy(() => import("../components/line/MenuDetailPage"))
-import {useNavigate} from "react-router-dom";
 
 const lineUpRouter = () => {
     return [
