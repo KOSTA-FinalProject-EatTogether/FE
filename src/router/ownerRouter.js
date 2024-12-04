@@ -22,7 +22,7 @@ const NewsAdd = lazy(() => import("../pages/restaurant/restaurantNews/Restaurant
 const NewsList = lazy(() => import("../pages/restaurant/restaurantNews/RestaurantNewsListPage"))
 const NewsModify = lazy(() => import("../pages/restaurant/restaurantNews/RestaurantNewsModifyPage"))
 
-const ReviewManageMain = lazy(() => import("../pages/reviews/ReviewManageMainPage"))
+const ReviewMainPage = lazy(() => import("../pages/reviews/ReviewMainPage"))
 
 
 
@@ -107,7 +107,7 @@ const ownerRouter = () => {
         },
         {
             path: "review",
-            element: <Suspense fallback={Loading}><ReviewManageMain /></Suspense>
+            element: <Suspense fallback={Loading}><ReviewMainPage /></Suspense>
         }
     ];
 };

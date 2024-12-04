@@ -9,7 +9,7 @@ const UserReviewDetailComponent =  lazy(()=>import("../components/mypage/UserRev
 const userRouter = () => {
     return [
         {
-            path: "user",
+            path: "",
             element : <Suspense fallback={Loading}><UserMyPage/></Suspense>
         },{
             path: "modify",

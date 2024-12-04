@@ -76,37 +76,37 @@ const NavBarByRole = () => {
                             userRole === 'OWNER' && (
                                 <>
                                     <li className="nav-item">
-                                        <a className="nav-link" href="/owner/restaurant/status">
+                                        <a className="nav-link" href="/owner/basic/menu">
                                         <FontAwesomeIcon icon={faUtensils} className="me-2"/>
                                             식당 메뉴 목록
                                         </a>
                                     </li>
                                     <li className="nav-item">
-                                        <a className="nav-link" href="/owner/businesshour">
+                                        <a className="nav-link" href="/owner/basic/hours/list">
                                             <FontAwesomeIcon icon={faGear} className="me-2"/>
                                             식당 운영 설정
                                         </a>
                                     </li>
                                     <li className="nav-item">
-                                        <a className="nav-link" href="/owner/reservationmain">
+                                        <a className="nav-link" href="/owner/reservation/main">
                                             <FontAwesomeIcon icon={faCalendarCheck} className="me-2"/>
                                             식당 예약 관리
                                         </a>
                                     </li>
                                     <li className="nav-item">
-                                        <a className="nav-link" href="/owner/queuemain">
+                                        <a className="nav-link" href="/owner/queue/main">
                                             <FontAwesomeIcon icon={faCalendarCheck} className="me-2"/>
                                             식당 줄서기 관리
                                         </a>
                                     </li>
                                     <li className="nav-item">
-                                        <a className="nav-link" href="/owner/reviewmanagemain">
+                                        <a className="nav-link" href="/owner/review">
                                             <FontAwesomeIcon icon={faComments} className="me-2"/>
                                             식당 리뷰 관리
                                         </a>
                                     </li>
                                     <li className="nav-item">
-                                        <a className="nav-link" href="/owner/newslist">
+                                        <a className="nav-link" href="/owner/news/list">
                                             <FontAwesomeIcon icon={faBullhorn} className="me-2"/>
                                             식당 소식 관리
                                         </a>
@@ -118,7 +118,7 @@ const NavBarByRole = () => {
                             userRole === 'USER' && (
                                 <>
                                     <li className="nav-item">
-                                        <a className="nav-link" href="/owner/menulist">
+                                        <a className="nav-link" href="/mypage/modify">
                                             <FontAwesomeIcon icon={faUtensils} className="me-2"/>
                                             프로필 수정
                                         </a>
@@ -130,13 +130,13 @@ const NavBarByRole = () => {
                                         </a>
                                     </li>
                                     <li className="nav-item">
-                                        <a className="nav-link" href="/owner/reservationmain">
+                                        <a className="nav-link" href="/mypage/tempreview">
                                             <FontAwesomeIcon icon={faCalendarCheck} className="me-2"/>
                                             나의 리뷰
                                         </a>
                                     </li>
                                     <li className="nav-item">
-                                        <a className="nav-link" href="/owner/queuemain">
+                                        <a className="nav-link" href="/mypage">
                                             <FontAwesomeIcon icon={faCalendarCheck} className="me-2"/>
                                             나의 관심모임
                                         </a>

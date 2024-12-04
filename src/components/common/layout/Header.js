@@ -22,7 +22,7 @@ const Header = () => {
         if (!loginInfo) {
             setShowModal(true);
         } else {
-            window.location.href = '/mypage/user';
+            window.location.href = '/mypage';
         }
     };
 
@@ -44,7 +44,7 @@ const Header = () => {
                 </div>
                 <nav className="header-nav-menu">
                     <FontAwesomeIcon icon={faUser} />
-                    <a href="/mypage/user" onClick={handleMyPageClick}>My page</a>
+                    <a href="/mypage" onClick={handleMyPageClick}>My page</a>
                     <FontAwesomeIcon icon={faRightToBracket} />
                     <a href="/user/signin">Login</a>
                     <a href="/notifications">
