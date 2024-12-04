@@ -27,7 +27,7 @@ const Header = () => {
     };
 
     const handleLoginRedirect = () => {
-        window.location.href = '/member/signin';
+        window.location.href = '/user/signin';
     };
 
     return (
@@ -46,7 +46,7 @@ const Header = () => {
                     <FontAwesomeIcon icon={faUser} />
                     <a href="/mypage/user" onClick={handleMyPageClick}>My page</a>
                     <FontAwesomeIcon icon={faRightToBracket} />
-                    <a href="/member/signin">Login</a>
+                    <a href="/user/signin">Login</a>
                     <a href="/notifications">
                         <FontAwesomeIcon icon={faBell} />
                     </a>

@@ -6,7 +6,7 @@ const ModifyUser = lazy(()=>import("../pages/mypages/ModifyProfilePage"))
 const UserPast = lazy(()=>import("../pages/mypages/UserPastPage"))
 const UserReviewWrite = lazy(()=>import("../pages/mypages/UserReviewWritePage"))
 const UserReviewDetailComponent =  lazy(()=>import("../components/mypage/UserReviewDetailComponent"))
-const memberRouter = () => {
+const userRouter = () => {
     return [
         {
             path: "user",
@@ -27,4 +27,4 @@ const memberRouter = () => {
     ]
 }
 
-export default memberRouter
+export default userRouter

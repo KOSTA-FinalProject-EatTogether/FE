@@ -8,7 +8,7 @@ const AdminRoute = () => {
     return user && user.role === 'ADMIN';  // 실제 역할값에 맞게 수정
   };
 
-  return isAdmin() ? <Outlet /> : <Navigate to="/member/signin" replace />;
+  return isAdmin() ? <Outlet /> : <Navigate to="/user/signin" replace />;
 };
 
 export default AdminRoute;

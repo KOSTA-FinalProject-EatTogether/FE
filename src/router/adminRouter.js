@@ -7,8 +7,8 @@ import TopAdminUserManagement from "../components/admin/TopAdminUserManagement";
 import ReviewList from "../components/reviews/ReviewListAndPreviewComponent";
 const Loading = <div>Loading..</div>
 
-const SignUp = lazy(()=>import("../pages/member/SignUpPage"))
-const SignIn = lazy(() => import("../pages/member/SignInPage"))
+const SignUp = lazy(()=>import("../pages/user/SignUpPage"))
+const SignIn = lazy(() => import("../pages/user/SignInPage"))
 
 const adminRouter = () => {
     return [
