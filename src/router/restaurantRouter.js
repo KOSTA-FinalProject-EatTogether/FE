@@ -1,22 +1,24 @@
-import {Suspense, lazy} from "react";
-const Loading = <div>Loading..</div>
+import { Suspense, lazy } from 'react';
 
-const RestaurantDetail = lazy(()=>import("../pages/restaurant/restaurantDetails/RestaurantDetailsPage"))
-const RestaurantModify = lazy(()=>import("../pages/restaurant/restaurantDetails/RestaurantModifyPage"))
-const RestaurantPreviewPage = lazy(()=>import("../pages/restaurant/restaurantPreview/RestaurantPreviewPage"))
-const restaurantRouter = () =>{
-    return [
-        {
-            path: "preview",
-            element : <Suspense fallback={Loading}><RestaurantPreviewPage/></Suspense>
-        },{
-            path: "detail",
-            element : <Suspense fallback={Loading}><RestaurantDetail/></Suspense>
-        },{
-            path:"modify",
-            element : <Suspense fallback={Loading}><RestaurantModify/></Suspense>
-        }
-    ]
-}
+const Loading = <div>Loading..</div>;
 
-export default restaurantRouter
+const RestaurantDetail = lazy(() => import('../pages/restaurant/restaurantDetails/RestaurantDetailsPage'));
+const RestaurantModify = lazy(() => import('../pages/restaurant/restaurantDetails/RestaurantModifyPage'));
+const RestaurantPreviewPage = lazy(() => import('../pages/restaurant/restaurantPreview/RestaurantPreviewPage'));
+
+const restaurantRouter = () => [
+  {
+    path: 'preview',
+    element: <Suspense fallback={Loading}><RestaurantPreviewPage /></Suspense>,
+  },
+  {
+    path: 'detail',
+    element: <Suspense fallback={Loading}><RestaurantDetail /></Suspense>,
+  },
+  {
+    path: 'modify',
+    element: <Suspense fallback={Loading}><RestaurantModify /></Suspense>,
+  },
+];
+
+export default restaurantRouter;
