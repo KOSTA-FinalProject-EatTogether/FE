@@ -11,7 +11,7 @@ const dummyReservationData = {
     depositPerPerson: 10000,
     paymentMethods: [
         { id: 'card', name: '신용카드', icon: '💳', pgProvider: 'mobilians' },
-        { id: 'naverpay', name: '네이버페이', icon: 'N', pgProvider: 'naverpay' },
+        { id: 'payco', name: '페이코', icon: 'P', pgProvider: 'payco' },
         { id: 'kakaopay', name: '카카오페이', icon: 'K', pgProvider: 'kakaopay' }
     ],
     bookingNumber: "AR241225-1234",
@@ -50,7 +50,7 @@ const ReservationPayment = () => {
 
         script.onload = () => {
             const IMP = window.IMP;
-            IMP.init('imp00000000'); // 테스트용 가맹점 식별코드
+            IMP.init('imp63523851'); // 테스트용 가맹점 식별코드
         };
 
         return () => {

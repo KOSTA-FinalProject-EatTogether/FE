@@ -4,7 +4,7 @@ import Restaurant from './Restaurant';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import KakaoMap from "../../common/map/KakaoMap";
 import Filter from './Filter';
-import { getRestaurantsByCategory } from '../../../service/api';
+import { getRestaurantsByCategory } from '../../../api/api';
 
 const useQuery = () => {
   return new URLSearchParams(useLocation().search);

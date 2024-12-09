@@ -4,7 +4,7 @@ const Loading = <div>Loading..</div>
 const ReservationMain = lazy(()=>import("../pages/restaurant/reservations/ReservationMainPage"))
 const ReservationConfirm = lazy(()=>import("../pages/restaurant/reservations/ReservationConfirmPage"))
 const ReservationPayment = lazy(()=>import("../pages/restaurant/reservations/ReservationPaymentPage"))
-
+const ReservationAll = lazy(()=>import("../components/reservations/ReservationList"))
 const reservationRouter = () => {
     return [
         {
@@ -16,6 +16,9 @@ const reservationRouter = () => {
         },{
             path: "payment",
             element : <Suspense fallback={Loading}><ReservationPayment/></Suspense>
+        },{
+            path: "reservationAll",
+            element : <Suspense fallback={Loading}><ReservationAll/></Suspense>
         }
     ]
 }
