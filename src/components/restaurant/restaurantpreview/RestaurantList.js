@@ -21,8 +21,8 @@ const RestaurantList = () => {
   const observer = useRef();
   const navigate = useNavigate();
 
-  const moveToRestaurantDetail = (id) => {
-    navigate(`/restaurant/${id}`);
+  const moveToRestaurantDetail = (rsId) => {
+    navigate(`/restaurant/detail/${rsId}`);
   };
 
   const moveToReservationMain = () => {
@@ -40,9 +40,16 @@ const RestaurantList = () => {
 
       const response = await getRestaurantsByCategory(categoryName, page);
       const newRestaurants = response.data.map(restaurant => ({
-        id: restaurant.rsId,
+        rsId: restaurant.rsId,
         name: restaurant.rsName,
+        phone: restaurant.rsPhone,
+        park: restaurant.rsPark,
+        time: restaurant.rsTime,
+        state: restaurant.rsState,
+        reviewCount: restaurant.rsReviewCount,
+        bookmarkCount: restaurant.rsBookmarkCount,
         rating: restaurant.rsAvgRate,
+        reservationCount: restaurant.rsReservationCount,
         waitingTeams: restaurant.waitingTeams || 0,
         images: restaurant.images || []
       }));
@@ -79,8 +86,8 @@ const RestaurantList = () => {
       </div>
       <div style={{ height: 'calc(100vh - 200px)', overflowY: 'auto', overflowX: 'hidden' }}>
         {restaurants.map((restaurant, index) => (
-          <div key={`restaurant-${restaurant.id}`} className="mb-4">
-            <div onClick={() => moveToRestaurantDetail(restaurant.id)} className="card p-3">
+          <div key={`restaurant-${restaurant.rsId}-${index}`} className="mb-4">
+            <div onClick={() => moveToRestaurantDetail(restaurant.rsId)} className="card p-3">
               <Restaurant
                 restaurant={restaurant}
                 ref={restaurants.length === index + 1 ? lastRestaurantElementRef : null}

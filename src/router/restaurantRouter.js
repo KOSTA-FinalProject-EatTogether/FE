@@ -12,7 +12,7 @@ const restaurantRouter = () => [
     element: <Suspense fallback={Loading}><RestaurantPreviewPage /></Suspense>,
   },
   {
-    path: 'detail',
+    path: 'detail/:rsId',
     element: <Suspense fallback={Loading}><RestaurantDetail /></Suspense>,
   },
   {
