@@ -140,7 +140,7 @@ const SignUpComponent = () => {
     return (
         <div style={containerStyle}>
             <div style={formStyle}>
-                <h4 style={titleStyle}>회원가입</h4>
+                <h4 style={titleStyle}>일반 사용자 회원가입</h4>
                 <form onSubmit={handleClickSignUp}>
                     <InputField
                         type="email"
