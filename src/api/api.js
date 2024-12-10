@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:8080/api'; // Spring Boot 서버 URL
+export const API_URL = 'http://localhost:8080/api'; // Spring Boot 서버 URL
 
 export const getRestaurantsByCategory = async (categoryName, page, size = 10) => {
   try {
