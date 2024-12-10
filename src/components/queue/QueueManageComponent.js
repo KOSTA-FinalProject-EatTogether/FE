@@ -1,32 +1,37 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import axios from "axios";
 
-// 샘플 대기 데이터
-const SAMPLE_WAITING = [
-    {
-        id: 1,
-        name: "김민수",
-        people: 2,
-        phone: "010-1234-5678",
-        status: "waiting", // waiting, seated, cancelled
-        timeAdded: "2024-12-01T14:30:00",
-        estimatedTime: "2024-12-01T15:00:00",
-        note: "창가자리 선호"
-    },
-    {
-        id: 2,
-        name: "이지은",
-        people: 4,
-        phone: "010-2345-6789",
-        status: "waiting",
-        timeAdded: "2024-12-01T14:35:00",
-        estimatedTime: "2024-12-01T15:15:00",
-        note: ""
+// 서버에서 데이터를 받아오는 함수
+const fetchWaitingListFromServer = async () => {
+    try {
+        const response = await fetch('http://localhost:8080/owner/queue/1');
+        if (!response.ok) {
+            throw new Error('서버에서 데이터를 가져오는 데 실패했습니다.');
+        }
+        const data = await response.json();
+
+        // 데이터를 가져온 후 부족한 부분을 'test'로 채워 넣기
+        return data.map(item => ({
+            queueDate: item.queueDate || "dataTest", // queueDate가 없으면 'test'로 설정
+            queueId: item.queueId || "123", // queueId가 없으면 'test'로 설정
+            queueNumber: item.queueNumber !== undefined ? item.queueNumber : "test", // queueNumber가 없으면 'test'로 설정
+            queueOrder: item.queueOrder || "오더test", // queueOrder가 없으면 'test'로 설정
+            queueState: item.queueState || "statetest", // queueState가 없으면 'test'로 설정
+            queueTime: item.queueTime || "timetest", // queueTime이 없으면 'test'로 설정
+            name: item.userName || "natest", // name이 없으면 'test'로 설정
+            phone: item.phone || "전화번호 없음", // phone이 없으면 'test'로 설정
+            queueOrderRequestMemo : item.queueOrderRequestMemo,
+            note: item.queueOrderRequestMemo || "요청사항 없음" // note가 없으면 'test'로 설정
+        }));
+    } catch (error) {
+        console.error('데이터를 불러오는 중 오류 발생:', error);
+        return []; // 오류 발생 시 빈 배열 반환
     }
-];
+};
 
-const QueueManageComponent = () =>{
-    const [waitingList, setWaitingList] = useState(SAMPLE_WAITING);
+const QueueManageComponent = () => {
+    const [waitingList, setWaitingList] = useState([]);
     const [view, setView] = useState('list'); // list, add
     const [newWaiting, setNewWaiting] = useState({
         name: '',
@@ -35,6 +40,16 @@ const QueueManageComponent = () =>{
         note: ''
     });
 
+    // 컴포넌트가 마운트될 때 데이터를 불러옵니다.
+    useEffect(() => {
+        const loadData = async () => {
+            const data = await fetchWaitingListFromServer();
+            setWaitingList(data);
+        };
+
+        loadData();
+    }, []); // 빈 배열을 전달하여 컴포넌트가 처음 렌더링될 때만 실행되도록 설정
+
     const handleAddCustomer = (e) => {
         e.preventDefault();
         // 실제 구현 시 여기에 웨이팅 추가 로직
@@ -42,11 +57,30 @@ const QueueManageComponent = () =>{
     };
 
     const handleStatusChange = (id, newStatus) => {
-        setWaitingList(prev =>
-            prev.map(item =>
-                item.id === id ? { ...item, status: newStatus } : item
-            )
-        );
+        fetch(`http://localhost:8080/owner/queue/${id}?state=${newStatus}`, {
+               method: 'PUT',
+               headers: {
+                   'Content-Type': 'application/json',
+               },
+           })
+               .then(response => response.text())
+               .then(data => {
+                   console.log(data);
+                   // 서버에서 성공적으로 응답이 오면, 상태를 UI에 반영
+                   if (data === 'Success') {
+                       setWaitingList(prevList => {
+                           console.log("Prev List:", prevList); // 상태 업데이트 중
+                           return prevList.map(item =>
+                               item.queueId === id ? { ...item, queueState: newStatus } : item
+                           );
+                       });
+                   } else {
+                       console.error("Status update failed:", data.message);
+                   }
+               })
+               .catch(error => {
+                   console.error("Error updating status:", error);
+               });
     };
 
     const renderHeader = () => (
@@ -64,8 +98,8 @@ const QueueManageComponent = () =>{
     );
 
     const renderStats = () => {
-        const waiting = waitingList.filter(item => item.status === 'waiting').length;
-        const seated = waitingList.filter(item => item.status === 'seated').length;
+        const waiting = waitingList.filter(item => item.queueState === 'waiting').length;
+        const seated = waitingList.filter(item => item.queueState === 'seated').length;
 
         return (
             <div className="row g-2 mb-3">
@@ -104,8 +138,8 @@ const QueueManageComponent = () =>{
                         <label className="form-label small">인원</label>
                         <select
                             className="form-select form-select-sm"
-                            value={newWaiting.people}
-                            onChange={e => setNewWaiting({...newWaiting, people: parseInt(e.target.value)})}
+                            value={newWaiting.queueNumber}
+                            onChange={e => setNewWaiting({...newWaiting, queueNumber: parseInt(e.target.value)})}
                         >
                             {[1,2,3,4,5,6,7,8].map(num => (
                                 <option key={num} value={num}>{num}명</option>
@@ -154,19 +188,21 @@ const QueueManageComponent = () =>{
             <div className="card-body p-0">
                 <div className="list-group list-group-flush">
                     {waitingList
-                        .filter(item => item.status === 'waiting')
+                        .filter(item => item.queueState === 'waiting')
                         .map((item, index) => (
-                            <div key={item.id} className="list-group-item">
+                            <div key={item.queueId} className="list-group-item">
                                 <div className="d-flex justify-content-between align-items-start mb-1">
                                     <div>
                                         <span className="badge bg-secondary me-2">대기 {index + 1}</span>
                                         <span className="fw-bold">{item.name}</span>
-                                        <span className="ms-2 small text-muted">{item.people}명</span>
+                                        <span className="ms-2 small text-muted">{item.queueNumber}명</span>
                                     </div>
                                     <small className="text-muted">
-                                        {new Date(item.timeAdded).toLocaleTimeString([], {
+                                        {new Date('1970-01-01T' + item.queueTime + 'Z').toLocaleTimeString([], {
                                             hour: '2-digit',
-                                            minute: '2-digit'
+                                            minute: '2-digit',
+                                            timeZone: 'UTC'
+
                                         })}
                                     </small>
                                 </div>
@@ -176,7 +212,7 @@ const QueueManageComponent = () =>{
                                 <div className="btn-group btn-group-sm">
                                     <button
                                         className="btn btn-success"
-                                        onClick={() => handleStatusChange(item.id, 'seated')}
+                                        onClick={() => handleStatusChange(item.queueId, 'seated')}
                                     >
                                         착석
                                     </button>
@@ -188,7 +224,7 @@ const QueueManageComponent = () =>{
                                     </button>
                                     <button
                                         className="btn btn-outline-danger"
-                                        onClick={() => handleStatusChange(item.id, 'cancelled')}
+                                        onClick={() => handleStatusChange(item.queueId, 'cancelled')}
                                     >
                                         취소
                                     </button>
@@ -215,5 +251,4 @@ const QueueManageComponent = () =>{
     );
 };
 
-export default QueueManageComponent
-
+export default QueueManageComponent;

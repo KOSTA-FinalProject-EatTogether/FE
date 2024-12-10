@@ -26,7 +26,7 @@ const OwnerMainPage = () => {
                 </ul>
             </div>
             <div>
-                <h2><a href="../owner/businesshour">식당 운영 설정</a></h2>
+                <h2><a href="../owner/basic/hours/list">식당 운영 설정</a></h2>
                 <div>
                     <ul>
                         <li>
@@ -42,13 +42,13 @@ const OwnerMainPage = () => {
                 </div>
             </div>
             <div>
-                <h2><a href="../owner/reservationmain">식당 예약 관리</a></h2>
+                <h2><a href="../owner/reservation/main">식당 예약 관리</a></h2>
             </div>
             <div>
-                <h2><a href="../owner/reservationtimesetting">식당 예약시간 관리</a></h2>
+                <h2><a href="../owner/reservation/timesetting">식당 예약시간 관리</a></h2>
             </div>
             <div>
-                <h2><a href="../owner/queuemain">식당 줄서기 관리</a></h2>
+                <h2><a href="../owner/queue/main">식당 줄서기 관리</a></h2>
             </div>
         </div>
         <div>
