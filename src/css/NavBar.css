@@ -5,8 +5,7 @@
     justify-content: center;          /* 중앙 정렬 */
     align-items: center;              /* 세로 중앙 정렬 */
     font-family: 'Arial', sans-serif;
-    margin-top: 20px;                 /* 상단 여백 */
-    margin-bottom: 20px;              /* 하단 여백 */
+
 }
 
 .bottom-nav ul {

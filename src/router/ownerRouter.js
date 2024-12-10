@@ -24,7 +24,7 @@ const NewsModify = lazy(() => import("../pages/restaurant/restaurantNews/Restaur
 
 const ReviewMainPage = lazy(() => import("../pages/reviews/ReviewMainPage"))
 
-
+const Register  = lazy(() => import("../pages/RegesterRestaurantPage"))
 
 const ownerRouter = () => {
     return [
@@ -108,6 +108,9 @@ const ownerRouter = () => {
         {
             path: "review",
             element: <Suspense fallback={Loading}><ReviewMainPage /></Suspense>
+        },{
+            path: "register",
+            element: <Suspense fallback={Loading}><Register /></Suspense>
         }
     ];
 };
