@@ -5,7 +5,7 @@ const ModifyProfilePage = () => {
 
     return (
         <div>
-            <h1>유저 마이페이지 - 프로파일 수정</h1>
+            <h3>유저 마이페이지 - 프로파일 수정</h3>
             <ModifyUserComponent/>
         </div>
     )
