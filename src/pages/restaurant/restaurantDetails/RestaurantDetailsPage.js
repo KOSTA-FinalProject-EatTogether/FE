@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import RestaurantFixDataComponent from "../../../components/restaurant/restaurantDetails/RestaurantFixDataComponent";
 import RestaurantDetailsNavComponent from "../../../components/restaurant/restaurantDetails/RestaurantDetailsNavComponent";
-import { getRestaurantById } from "../../../service/api"; 
+import { getRestaurantById } from "../../../api/api";
 
 const RestaurantDetailsPage = () => {
   const { rsId } = useParams();

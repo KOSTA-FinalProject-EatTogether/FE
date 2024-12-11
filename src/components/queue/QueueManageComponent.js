@@ -5,7 +5,7 @@ import axios from "axios";
 // 서버에서 데이터를 받아오는 함수
 const fetchWaitingListFromServer = async () => {
     try {
-        const response = await fetch('http://localhost:8080/owner/queue/1');
+        const response = await fetch('http://localhost:8080/owner/queue/?state=waiting');
         if (!response.ok) {
             throw new Error('서버에서 데이터를 가져오는 데 실패했습니다.');
         }
@@ -22,6 +22,8 @@ const fetchWaitingListFromServer = async () => {
             name: item.userName || "natest", // name이 없으면 'test'로 설정
             phone: item.phone || "전화번호 없음", // phone이 없으면 'test'로 설정
             queueOrderRequestMemo : item.queueOrderRequestMemo,
+            queueCreatedAt : item.queueCreatedAt,
+            queueUpdatedAt : item.queueUpdatedAt,
             note: item.queueOrderRequestMemo || "요청사항 없음" // note가 없으면 'test'로 설정
         }));
     } catch (error) {
@@ -57,7 +59,7 @@ const QueueManageComponent = () => {
     };
 
     const handleStatusChange = (id, newStatus) => {
-        fetch(`http://localhost:8080/owner/queue/${id}?state=${newStatus}`, {
+        fetch(`http://localhost:8080/owner/queue/?state=${newStatus}`, {
                method: 'PUT',
                headers: {
                    'Content-Type': 'application/json',
@@ -99,7 +101,7 @@ const QueueManageComponent = () => {
 
     const renderStats = () => {
         const waiting = waitingList.filter(item => item.queueState === 'waiting').length;
-        const seated = waitingList.filter(item => item.queueState === 'seated').length;
+        const seated = waitingList.filter(item => item.queueState === '입장완료').length;
 
         return (
             <div className="row g-2 mb-3">
@@ -212,7 +214,7 @@ const QueueManageComponent = () => {
                                 <div className="btn-group btn-group-sm">
                                     <button
                                         className="btn btn-success"
-                                        onClick={() => handleStatusChange(item.queueId, 'seated')}
+                                        onClick={() => handleStatusChange(item.queueId, '입장완료')}
                                     >
                                         착석
                                     </button>
