@@ -13,6 +13,15 @@ export const getReservations = async () => {
     }
 };
 
-export const postReservation = async (reservationObj) => {
-    const res = await axios(`${prefix}`, reservationObj)
-}
+export const createReservationwithoutdeposit = async (reservationData) => {
+    return await axios.post(prefix, reservationData);
+};
+
+export const getRestaurantReservationInfo = async (rsId) => {
+    try {
+        const response = await axios.get(`${API_SERVER_HOST}/api/restaurants/${rsId}/reservation-info`);
+        return response.data;
+    } catch (error) {
+        throw error;
+    }
+};

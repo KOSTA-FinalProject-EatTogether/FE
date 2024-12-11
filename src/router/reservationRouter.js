@@ -1,16 +1,15 @@
 import {Suspense, lazy} from "react";
 const Loading = <div>Loading..</div>
 
-const ReservationMain = lazy(()=>import("../pages/restaurant/reservations/ReservationMainPage"))
 const ReservationConfirm = lazy(()=>import("../pages/restaurant/reservations/ReservationConfirmPage"))
 const ReservationPayment = lazy(()=>import("../pages/restaurant/reservations/ReservationPaymentPage"))
+const ReservationComplete = lazy(()=>import("../pages/restaurant/reservations/ReservationCompletePage"))
 const ReservationAll = lazy(()=>import("../components/reservations/ReservationList"))
+
+
 const reservationRouter = () => {
     return [
         {
-            path: "main",
-            element : <Suspense fallback={Loading}><ReservationMain/></Suspense>
-        },{
             path: "confirm",
             element : <Suspense fallback={Loading}><ReservationConfirm/></Suspense>
         },{
@@ -19,6 +18,9 @@ const reservationRouter = () => {
         },{
             path: "reservationAll",
             element : <Suspense fallback={Loading}><ReservationAll/></Suspense>
+        },{
+            path: "complete",
+            element : <Suspense fallback={Loading}><ReservationComplete/></Suspense>
         }
     ]
 }
