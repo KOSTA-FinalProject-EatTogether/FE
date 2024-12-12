@@ -1,122 +1,112 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import simba from '../../assets/simba_icon.png';
+import { getMenusByRestaurantId } from "../../service/api"; // API 호출 함수 임포트
 
-// 메뉴 데이터
-export const menuData = [
-    {
-        id: "menu001",
-        name: "김치찌개",
-        price: 10000,
-        description: "직접 담근 김치로 만든 김치찌개",
-        image: simba
-    },
-    {
-        id: "menu002",
-        name: "불고기",
-        price: 15000,
-        description: "특제 양념 불고기",
-        image: simba
-    },
-    {
-        id: "menu003",
-        name: "파스타 카르보나라",
-        price: 18000,
-        description: "크리미한 카르보나라 파스타",
-        image: simba
-    },
-    {
-        id: "menu004",
-        name: "스테이크",
-        price: 25000,
-        description: "앵거스 등심 스테이크",
-        image: simba
-    },
-    {
-        id: "side001",
-        name: "공기밥",
-        price: 1000,
-        description: "따뜻한 밥",
-        image: simba
-    },
-];
+const MenuListComponent = ({ rsId }) => {
+  const [menuData, setMenuData] = useState([]);
+  console.log('MenuListComponent rsId:', rsId); // rsId 값 확인
 
-// 전체 메뉴 리스트 컴포넌트 (전체 메뉴 페이지)
-export const MenuListComponent = () => {
-    return (
-        <div className="container mt-4">
-            <h2 className="mb-4 fs-4">메뉴</h2>
-            {menuData.map((item) => (
-                <div key={item.id} className="card mb-3">
-                    <div className="card-body d-flex justify-content-between align-items-center">
-                        <div>
-                            <h5 className="card-title">{item.name}</h5>
-                            <p className="card-text text-muted mb-2">
-                                {item.description}
-                            </p>
-                            <span className="badge bg-primary">
-                                {item.price.toLocaleString()}원
-                            </span>
-                        </div>
-                        <div className="d-flex align-items-center justify-content-center">
-                            <img 
-                                src={item.image} 
-                                alt={item.name}
-                                className="rounded object-fit-cover"
-                                style={{ 
-                                    width: '100px',
-                                    height: '100px'
-                                }}
-                            />
-                        </div>
-                    </div>
-                </div>
-            ))}
-        </div>
-    );
- };
+  useEffect(() => {
+    const fetchMenus = async () => {
+      try {
+        const data = await getMenusByRestaurantId(rsId);
+        console.log('메뉴 데이터:', data); // 데이터 확인
+        setMenuData(data);
+      } catch (error) {
+        console.error('Error fetching menu data:', error);
+      }
+    };
 
- export const MenuPreview = () => {
-    const previewMenus = menuData.slice(0, 3);
- 
-    return (
-        <div className="container mt-4">
-            <h2 className="mb-4 fs-5">메뉴 미리보기</h2>
-            {previewMenus.map((item) => (
-                <div key={item.id} className="card mb-3">
-                    <div className="row g-0">
-                        <div className="col-8">
-                            <div className="card-body">
-                                <h6 className="card-title mb-2">{item.name}</h6>
-                                <p className="card-text text-muted small mb-2">
-                                    {item.description}
-                                </p>
-                                <span className="badge bg-primary">
-                                    {item.price.toLocaleString()}원
-                                </span>
-                            </div>
-                        </div>
-                        <div className="col-4 d-flex align-items-center justify-content-center p-2">
-                            <img
-                                src={item.image}
-                                alt={item.name}
-                                className="rounded object-fit-cover"
-                                style={{
-                                    width: '90px',
-                                    height: '90px'
-                                }}
-                            />
-                        </div>
-                    </div>
-                </div>
-            ))}
-            <div className="text-center mt-3">
-                <a href="/owner/menulist" className="btn btn-sm btn-outline-primary">
-                    전체 메뉴 보기
-                </a>
+    fetchMenus();
+  }, [rsId]);
+
+  return (
+    <div className="container mt-4">
+      <h2 className="mb-4 fs-4">메뉴</h2>
+      {menuData.map((item) => (
+        <div key={item.menuId} className="card mb-3">
+          <div className="card-body d-flex justify-content-between align-items-center">
+            <div>
+              <h5 className="card-title">{item.menuName}</h5>
+              <p className="card-text text-muted mb-2">{item.menuDesc}</p>
+              <span className="badge bg-primary">{item.menuPrice}원</span>
             </div>
+            <div className="d-flex align-items-center justify-content-center">
+              <img 
+                src={item.menuPhotoPath} 
+                alt={item.menuName}
+                className="rounded object-fit-cover"
+                style={{ 
+                  width: '100px',
+                  height: '100px'
+                }}
+              />
+            </div>
+          </div>
         </div>
-    );
- };
+      ))}
+    </div>
+  );
+};
 
-export default MenuListComponent;
+export const MenuPreview = ({ rsId }) => {
+  const [menuData, setMenuData] = useState([]);
+  console.log('MenuPreview rsId:', rsId); // rsId 값 확인
+
+  useEffect(() => {
+    const fetchMenus = async () => {
+      try {
+        const data = await getMenusByRestaurantId(rsId);
+        console.log('메뉴 미리보기 데이터:', data); // 데이터 확인
+        // 각 item의 구조를 확인
+        data.forEach(item => console.log('item:', item));
+        // item 구조에서 isFeatured 값을 필터링
+        const featuredMenus = data.filter(item => item.featured === true || item.featured === "true"); 
+        // 대표 메뉴 필터링
+        console.log('대표 메뉴:', featuredMenus); // 대표 메뉴 데이터 확인
+        setMenuData(featuredMenus.slice(0, 3)); // 미리보기용 데이터 슬라이싱
+      } catch (error) {
+        console.error('Error fetching menu data:', error);
+      }
+    };
+
+    fetchMenus();
+  }, [rsId]);
+
+  return (
+    <div className="container mt-4">
+      <h2 className="mb-4 fs-5">메뉴 미리보기</h2>
+      {menuData.map((item) => (
+        <div key={item.menuId} className="card mb-3">
+          <div className="row g-0">
+            <div className="col-8">
+              <div className="card-body">
+                <h6 className="card-title mb-2">{item.menuName}</h6>
+                <p className="card-text text-muted small mb-2">{item.menuDesc}</p>
+                <span className="badge bg-primary">{item.menuPrice}원</span>
+              </div>
+            </div>
+            <div className="col-4 d-flex align-items-center justify-content-center p-2">
+              <img
+                src={item.menuPhotoPath}
+                alt={item.menuName}
+                className="rounded object-fit-cover"
+                style={{
+                  width: '90px',
+                  height: '90px'
+                }}
+              />
+            </div>
+          </div>
+        </div>
+      ))}
+      <div className="text-center mt-3">
+        <a href="/owner/menulist" className="btn btn-sm btn-outline-primary">
+          전체 메뉴 보기
+        </a>
+      </div>
+    </div>
+  );
+};
+
+export default MenuListComponent; // MenuListComponent를 기본적으로 내보냄

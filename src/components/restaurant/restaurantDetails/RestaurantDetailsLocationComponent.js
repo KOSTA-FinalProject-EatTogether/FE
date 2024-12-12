@@ -1,6 +1,5 @@
 import React from 'react';
 import '../../../css/restaurantDetailsCss/RestaurantDetailsLocation.css';
-import mapImage from '../../../assets/simba_icon.png';
 import LocationPoint from "../../../assets/location_pinpoint.png";
 import KakaoMap from "../../common/map/KakaoMap";
 

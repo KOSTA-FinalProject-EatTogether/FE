@@ -1,22 +1,10 @@
-import { Link } from 'react-router-dom';
-import React, {useState} from 'react';
-import '../../../css/restaurantDetailsCss/RestaunrantDetailsNav.css';
-import RestaurantDetailSummaryComponent from "./RestaurantDetailSummaryComponent";
-import MenuListComponent from "../../menu/MenuListAndPreviewComponent";
-import RestaurantButtonPhotoComponent from "../RestaurantDetailsButton/RestaurantButtonPhotoComponent";
-import ReviewList from "../../reviews/ReviewListAndPreviewComponent";
-import RestaurantButtonIntroPage from "../../../pages/restaurant/restaurantButtonDetails/RestaurantButtonIntroPage";
+import React from 'react';
 
+function RestaurantDetailsNavComponent({ restaurant, activeSection, setActiveSection }) {
+    const getSectionClassName = (section) => {
+        return `list-group-item list-group-item-action ${activeSection === section ? 'active' : ''}`;
+    };
 
-function RestaurantDetailsNav() {
-    const [activeSection, setActiveSection] = useState('home');
-
-    // 섹션별 클래스명 생성 함수
-        const getSectionClassName = (section) => {
-            return `list-group-item list-group-item-action ${activeSection === section ? 'active' : ''}`;
-        };
-
-    // 섹션 변경 핸들러
     const handleSectionChange = (section) => {
         setActiveSection(section);
     };
@@ -55,37 +43,13 @@ function RestaurantDetailsNav() {
                 <li
                     className={`${getSectionClassName('restaurantDetails')} flex-grow-1 text-center`}
                     onClick={() => handleSectionChange('restaurantDetails')}
-                    style={{ cursor: 'pointer', minWidth: '85px' }}
+                    style={{ cursor: 'pointer', minWidth: '100px' }}
                 >
                     매장상세
                 </li>
             </ul>
-        
-        {activeSection === 'home' && (
-            <RestaurantDetailSummaryComponent/>
-        )}
-
-        {activeSection === 'menu' && (
-            <MenuListComponent/>
-        )}
-
-        {activeSection === 'photos' && (
-            
-            <RestaurantButtonPhotoComponent/>
-            
-        )}
-
-        {activeSection === 'reviews' && (
-            
-            <ReviewList/>
-            
-        )}
-
-        {activeSection === 'restaurantDetails' && (
-            <RestaurantButtonIntroPage/>
-        )}
-    </div>
-);
+        </div>
+    );
 }
 
-export default RestaurantDetailsNav;
+export default RestaurantDetailsNavComponent;
