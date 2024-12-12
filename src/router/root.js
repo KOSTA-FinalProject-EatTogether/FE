@@ -1,5 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom';
 import MainPage from '../pages/main/MainPage';
+import KakaoPage from   '../pages/map/KakaoMapPage';
 import BasicBodyLayout from '../layouts/common/BasicBodyLayout';
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
@@ -11,6 +12,7 @@ import restaurantRouter from './restaurantRouter';
 import lineUpRouter from './lineUpRouter';
 import adminRouter from './adminRouter';
 import AdminRoute from '../components/routes/AdminRoute';
+
 
 const Loading = <div className="bg-red-700">Loading..</div>;
 
@@ -34,6 +36,8 @@ const root = createBrowserRouter([
       { path: 'restaurant', children: restaurantRouter() },
       { path: 'admin', element: <AdminRoute />, children: adminRouter() },
       { path: 'queue', children: lineUpRouter() },
+      { path: 'kakaomap', element: <KakaoPage/>},
+
     ],
   },
 ]);

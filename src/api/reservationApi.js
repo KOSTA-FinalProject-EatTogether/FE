@@ -1,8 +1,7 @@
 import axios from "axios"
-import API_URL from "./api.js"
-export const API_SERVER_HOST = 'http://localhost:8080'
+import {API_URL} from "./api.js"
 
-const prefix = `${API_SERVER_HOST}/api/reservations`
+const prefix = `${API_URL}/reservations`
 
 export const getReservations = async () => {
     try {
@@ -19,7 +18,7 @@ export const createReservationwithoutdeposit = async (reservationData) => {
 
 export const getRestaurantReservationInfo = async (rsId) => {
     try {
-        const response = await axios.get(`${API_SERVER_HOST}/api/restaurants/${rsId}/reservation-info`);
+        const response = await axios.get(`${API_URL}/restaurants/${rsId}/reservation-info`);
         return response.data;
     } catch (error) {
         throw error;
